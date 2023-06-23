@@ -213,4 +213,10 @@ public class Object extends ShaderProgram{
             child.translateObject(scaleX,scaleY,scaleZ);
         }
     }
+
+    public void drawLine(Camera camera, Projection projection) {
+        drawSetup(camera, projection);
+        glDrawArrays(GL_LINE_LOOP, 0,
+                vertices.size());
+    }
 }
