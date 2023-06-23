@@ -79,7 +79,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.330f,0.333f,0.333f,1.0f),
-                "resources/model/asteroid/untitled.obj"
+                "resources/model/asteroid/untitled.obj", new Vector3f(0,0,0)
         ));
 
         objectGround.get(0).scaleObject(0.05f,0.05f,0.02f);
@@ -91,14 +91,9 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-<<<<<<< HEAD
-                new Vector4f(0.640f,0.513f,0.410f,1.0f),
+                new Vector4f(0.340f,0.250f,0.177f,1.0f),
                 "resources/model/toko/lt2badan.obj"
-=======
-                new Vector4f(1f,0f,0f,1.0f),
-                "resources/model/toko/lt2.obj"
                 , new Vector3f(0,0,0)
->>>>>>> b38ab63a59373e44cc0050a1929dfb89e841d4cd
         ));
 
         objectToko.get(0).scaleObject(0.1f,0.1f,0.1f);
@@ -265,7 +260,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
-                "resources/model/toko/lt2atap.obj"
+                "resources/model/toko/lt2atap.obj", new Vector3f(0,0,0)
         ));
 
         objectToko.get(12).scaleObject(0.1f,0.1f,0.1f);
@@ -278,7 +273,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.393f,0.393f,0.393f,1.0f),
-                "resources/model/toko/listrik_tong.obj"
+                "resources/model/toko/listrik_tong.obj", new Vector3f(0,0,0)
         ));
 
         objectToko.get(13).scaleObject(0.1f,0.1f,0.1f);
@@ -291,7 +286,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
-                "resources/model/toko/kerangka.obj"
+                "resources/model/toko/kerangka.obj", new Vector3f(0,0,0)
         ));
 
         objectToko.get(14).scaleObject(0.1f,0.1f,0.1f);
@@ -304,7 +299,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0f,0f,0f,1.0f),
-                "resources/model/toko/penyanggabanner.obj"
+                "resources/model/toko/penyanggabanner.obj", new Vector3f(0,0,0)
         ));
 
         objectToko.get(15).scaleObject(0.1f,0.1f,0.1f);
@@ -317,7 +312,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.630f,0.469f,0.258f,1.0f),
-                "resources/model/toko/banner.obj"
+                "resources/model/toko/banner.obj", new Vector3f(0,0,0)
         ));
 
         objectToko.get(16).scaleObject(0.1f,0.1f,0.1f);
@@ -330,7 +325,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.960f,0.710f,0.710f,1.0f),
-                "resources/model/toko/bannerluar_karpet.obj"
+                "resources/model/toko/bannerluar_karpet.obj", new Vector3f(0,0,0)
         ));
 
         objectToko.get(17).scaleObject(0.1f,0.1f,0.1f);
