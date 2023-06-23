@@ -21,6 +21,8 @@ public class Main {
     ArrayList<Object> objectObj = new ArrayList<>();
     ArrayList<Object> objectGround = new ArrayList<>();
     ArrayList<Object> objectToko = new ArrayList<>();
+    ArrayList<Object> objectSampah = new ArrayList<>();
+    ArrayList<Object> objectMejaKursi = new ArrayList<>();
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
     float distance = 1f;
@@ -91,7 +93,7 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(0.340f,0.250f,0.177f,1.0f),
+                new Vector4f(0.640f,0.513f,0.410f,1.0f),
                 "resources/model/toko/lt2badan.obj"
                 , new Vector3f(0,0,0)
         ));
@@ -330,6 +332,103 @@ public class Main {
 
         objectToko.get(17).scaleObject(0.1f,0.1f,0.1f);
         objectToko.get(17).translateObject(0.0f, 0.0f, 0f);
+
+        objectSampah.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,0f,0f,1.0f),
+                "resources/model/sampah/sampah1.obj", new Vector3f(0,0,0)
+        ));
+
+        objectSampah.get(0).scaleObject(0.1f,0.1f,0.1f);
+        objectSampah.get(0).translateObject(0.0f, 0.0f, 0f);
+
+        objectSampah.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,0f,0f,1.0f),
+                "resources/model/sampah/sampah2.obj", new Vector3f(0,0,0)
+        ));
+
+        objectSampah.get(1).scaleObject(0.1f,0.1f,0.1f);
+        objectSampah.get(1).translateObject(0.0f, 0.0f, 0f);
+
+        objectSampah.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.196f,0.430f,0.155f,1.0f),
+                "resources/model/sampah/tong_sampah_besar.obj", new Vector3f(0,0,0)
+        ));
+
+        objectSampah.get(2).scaleObject(0.1f,0.1f,0.1f);
+        objectSampah.get(2).translateObject(0.0f, 0.0f, 0f);
+
+        objectSampah.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.620f,0.541f,0.384f,1.0f),
+                "resources/model/sampah/kerdus.obj", new Vector3f(0,0,0)
+        ));
+
+        objectSampah.get(3).scaleObject(0.1f,0.1f,0.1f);
+        objectSampah.get(3).translateObject(0.0f, 0.0f, 0f);
+
+
+        objectMejaKursi.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.620f,0.541f,0.384f,1.0f),
+                "resources/model/mejakursi/mejakursi.obj", new Vector3f(0,0,0)
+        ));
+
+        objectMejaKursi.get(0).scaleObject(0.4f,0.4f,0.4f);
+        objectMejaKursi.get(0).rotateObject(-0.3f,0.0f,1f,0.0f);
+        objectMejaKursi.get(0).translateObject(-1.3f, -0.105f, 0.8f);
+
+        objectMejaKursi.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.620f,0.541f,0.384f,1.0f),
+                "resources/model/mejakursi/mejakursi.obj", new Vector3f(0,0,0)
+        ));
+
+        objectMejaKursi.get(1).scaleObject(0.4f,0.4f,0.4f);
+//        objectMejaKursi.get(0).rotateObject(-0.3f,0.0f,1f,0.0f);
+        objectMejaKursi.get(1).translateObject(0f, -0.105f, 1.1f);
+
+        objectMejaKursi.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.620f,0.541f,0.384f,1.0f),
+                "resources/model/mejakursi/mejakursi.obj", new Vector3f(0,0,0)
+        ));
+
+        objectMejaKursi.get(2).scaleObject(0.4f,0.4f,0.4f);
+        objectMejaKursi.get(2).rotateObject(0.3f,0.0f,1f,0.0f);
+        objectMejaKursi.get(2).translateObject(1.2f, -0.105f, 1.1f);
+
+
     }
 
     public void input() {
@@ -346,6 +445,13 @@ public class Main {
             }
 
             for (Object object: objectGround){
+                object.setScene(malam);
+                for(Object objectChild: object.getChildObject()){
+                    objectChild.setScene(malam);
+                }
+            }
+
+            for (Object object: objectMejaKursi){
                 object.setScene(malam);
                 for(Object objectChild: object.getChildObject()){
                     objectChild.setScene(malam);
@@ -704,6 +810,16 @@ public class Main {
             for (Object object: objectToko) {
                 object.draw(camera, projection);
             }
+
+            for (Object object: objectMejaKursi) {
+                object.draw(camera, projection);
+            }
+
+            for (Object object: objectSampah) {
+                object.draw(camera, projection);
+            }
+
+
 
             // Restore state
             glDisableVertexAttribArray(0);
