@@ -21,8 +21,11 @@ public class Main {
     ArrayList<Object> objectObj = new ArrayList<>();
     ArrayList<Object> objectGround = new ArrayList<>();
     ArrayList<Object> objectToko = new ArrayList<>();
+
+    ArrayList<Object> objectdekorasiToko = new ArrayList<>();
     ArrayList<Object> objectSampah = new ArrayList<>();
     ArrayList<Object> objectMejaKursi = new ArrayList<>();
+    ArrayList<Object> objectSpaceship = new ArrayList<>();
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
     float distance = 1f;
@@ -333,6 +336,136 @@ public class Main {
         objectToko.get(17).scaleObject(0.1f,0.1f,0.1f);
         objectToko.get(17).translateObject(0.0f, 0.0f, 0f);
 
+        objectdekorasiToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.340f,0.250f,0.177f,1.0f),
+                "resources/model/toko/tiang_banner1.obj", new Vector3f(0,0,0)
+        ));
+
+        objectdekorasiToko.get(0).scaleObject(5f,5f,5f);
+        objectdekorasiToko.get(0).translateObject(-0.25f, -0.02f, 0.5f);
+
+        objectdekorasiToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,0f,0f,1.0f),
+                "resources/model/toko/isi_banner.obj", new Vector3f(0,0,0)
+        ));
+
+        objectdekorasiToko.get(1).scaleObject(5f,5f,5f);
+        objectdekorasiToko.get(1).translateObject(-0.25f, -0.02f, 0.5f);
+
+        objectdekorasiToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.340f,0.250f,0.177f,1.0f),
+                "resources/model/toko/tiang_lampionkiri.obj", new Vector3f(0,0,0)
+        ));
+
+        objectdekorasiToko.get(2).scaleObject(5f,5f,5f);
+        objectdekorasiToko.get(2).translateObject(1.8f, -0.02f, 0.0f);
+
+        objectdekorasiToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.340f,0.250f,0.177f,1.0f),
+                "resources/model/toko/tiang_lampionkanan.obj", new Vector3f(0,0,0)
+        ));
+
+        objectdekorasiToko.get(3).scaleObject(5f,5f,5f);
+        objectdekorasiToko.get(3).translateObject(1.8f, -0.02f, 0.0f);
+
+        objectdekorasiToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.340f,0.250f,0.177f,1.0f),
+                "resources/model/toko/tiang_lampiontengah.obj", new Vector3f(0,0,0)
+        ));
+
+        objectdekorasiToko.get(4).scaleObject(5f,5f,5f);
+        objectdekorasiToko.get(4).translateObject(1.8f, -0.02f, 0.0f);
+
+        objectdekorasiToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,0f,0f,1.0f),
+                "resources/model/toko/lampionkiri.obj", new Vector3f(0,0,0)
+        ));
+
+        objectdekorasiToko.get(5).scaleObject(5f,5f,5f);
+        objectdekorasiToko.get(5).translateObject(1.8f, -0.02f, 0.0f);
+
+        objectdekorasiToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,0f,0f,1.0f),
+                "resources/model/toko/lampionkiritengah.obj", new Vector3f(0,0,0)
+        ));
+
+        objectdekorasiToko.get(6).scaleObject(5f,5f,5f);
+        objectdekorasiToko.get(6).translateObject(1.8f, -0.02f, 0.0f);
+
+        objectdekorasiToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,0f,0f,1.0f),
+                "resources/model/toko/lampiontengah.obj", new Vector3f(0,0,0)
+        ));
+
+        objectdekorasiToko.get(7).scaleObject(5f,5f,5f);
+        objectdekorasiToko.get(7).translateObject(1.8f, -0.02f, 0.0f);
+
+        objectdekorasiToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,0f,0f,1.0f),
+                "resources/model/toko/lampionkanantengah.obj", new Vector3f(0,0,0)
+        ));
+
+        objectdekorasiToko.get(8).scaleObject(5f,5f,5f);
+        objectdekorasiToko.get(8).translateObject(1.8f, -0.02f, 0.0f);
+
+        objectdekorasiToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,0f,0f,1.0f),
+                "resources/model/toko/lampionkanan.obj", new Vector3f(0,0,0)
+        ));
+
+        objectdekorasiToko.get(9).scaleObject(5f,5f,5f);
+        objectdekorasiToko.get(9).translateObject(1.8f, -0.02f, 0.0f);
+
         objectSampah.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -427,6 +560,74 @@ public class Main {
         objectMejaKursi.get(2).scaleObject(0.4f,0.4f,0.4f);
         objectMejaKursi.get(2).rotateObject(0.3f,0.0f,1f,0.0f);
         objectMejaKursi.get(2).translateObject(1.2f, -0.105f, 1.1f);
+
+        objectSpaceship.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,0f,1f,1.0f),
+                "resources/model/spaceship/mainbody.obj", new Vector3f(0,0,0)
+        ));
+
+
+        objectSpaceship.get(0).scaleObject(0.4f,0.4f,0.4f);
+        objectSpaceship.get(0).translateObject(-2.7f, -0.0f, 0.5f);
+
+        objectSpaceship.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,0f,1f,1.0f),
+                "resources/model/spaceship/sayapkiri.obj", new Vector3f(0,0,0)
+        ));
+
+
+        objectSpaceship.get(1).scaleObject(0.4f,0.4f,0.4f);
+        objectSpaceship.get(1).translateObject(-2.7f, -0.0f, 0.5f);
+
+        objectSpaceship.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,0f,1f,1.0f),
+                "resources/model/spaceship/sayapkanan.obj", new Vector3f(0,0,0)
+        ));
+
+
+        objectSpaceship.get(2).scaleObject(0.4f,0.4f,0.4f);
+        objectSpaceship.get(2).translateObject(-2.7f, -0.0f, 0.5f);
+
+        objectSpaceship.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,1f,0f,1.0f),
+                "resources/model/spaceship/kursiPenumpang.obj", new Vector3f(0,0,0)
+        ));
+
+        objectSpaceship.get(3).scaleObject(0.4f,0.4f,0.4f);
+        objectSpaceship.get(3).translateObject(-2.7f, -0.0f, 0.5f);
+
+        objectSpaceship.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f),
+                "resources/model/spaceship/penutup.obj", new Vector3f(0,0,0)
+        ));
+
+        objectSpaceship.get(4).scaleObject(0.4f,0.4f,0.4f);
+        objectSpaceship.get(4).translateObject(-2.7f, -0.0f, 0.5f);
 
 
     }
@@ -811,12 +1012,21 @@ public class Main {
                 object.draw(camera, projection);
             }
 
+            for (Object object: objectdekorasiToko) {
+                object.draw_mejakursi(camera, projection);
+            }
+
+
             for (Object object: objectMejaKursi) {
                 object.draw(camera, projection);
             }
 
             for (Object object: objectSampah) {
                 object.draw(camera, projection);
+            }
+
+            for (Object object: objectSpaceship) {
+                object.draw_mejakursi(camera, projection);
             }
 
 
