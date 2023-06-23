@@ -175,7 +175,7 @@ public class Object extends ShaderProgram{
         //GL_TRIANGLES
         //GL_TRIANGLE_FAN
         //GL_POINT
-        glDrawArrays(GL_TRIANGLES,
+        glDrawArrays(GL_POLYGON,
                 0,
                 vertices.size());
         for(Object child:childObject){

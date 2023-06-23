@@ -20,13 +20,6 @@ public class Main {
     private Window window = new Window(1080, 1080, "Hello World");
     ArrayList<Object> objectObj = new ArrayList<>();
     ArrayList<Object> objectGround = new ArrayList<>();
-    ArrayList<Object> objectTrack = new ArrayList<>();
-    ArrayList<Object> objectOuterWall = new ArrayList<>();
-    ArrayList<Object> objectFinishLine = new ArrayList<>();
-    ArrayList<Object> objectLighthouse = new ArrayList<>();
-    ArrayList<Object> objectPagar= new ArrayList<>();
-
-    ArrayList<Object> objectBotol = new ArrayList<>();
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
     float distance = 1f;
@@ -68,24 +61,27 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1.0f,0.0f,1.0f,1.0f),
+                new Vector4f(1f,0f,1f,1.0f),
                 "resources/model/Bottle/Bottle.obj"
         ));
 
-        objectObj.get(0).scaleObject(0.1f,0.1f,0.1f);
-        objectObj.get(0).translateObject(0.0f, 0.5f, 0f);
+        objectObj.get(0).scaleObject(0.01f,0.01f,0.01f);
+        objectObj.get(0).translateObject(0.0f, 0.0f, 0f);
 
-        objectObj.add(new Model(
+        //asteroid_Ground
+        objectGround.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1.0f,0.0f,1.0f,1.0f),
-                "resources/model/japaneseramenstall/source/Japanese Ramen Stall.obj"
+                new Vector4f(0.330f,0.333f,0.333f,1.0f),
+                "resources/model/asteroid/untitled.obj"
         ));
-        objectObj.get(1).scaleObject(0.1f, 0.1f, 0.1f);
-        objectObj.get(1).translateObject(0.0f, 0.8f, 0f);
+
+        objectGround.get(0).scaleObject(0.01f,0.01f,0.01f);
+        objectGround.get(0).translateObject(0.0f, 0.0f, 0f);
+
     }
 
     public void input() {
@@ -108,40 +104,6 @@ public class Main {
                 }
             }
 
-            for (Object object: objectLighthouse){
-                object.setScene(malam);
-                for(Object objectChild: object.getChildObject()){
-                    objectChild.setScene(malam);
-                }
-            }
-
-            for (Object object: objectPagar){
-                object.setScene(malam);
-                for(Object objectChild: object.getChildObject()){
-                    objectChild.setScene(malam);
-                }
-            }
-
-            for (Object object: objectOuterWall){
-                object.setScene(malam);
-                for(Object objectChild: object.getChildObject()){
-                    objectChild.setScene(malam);
-                }
-            }
-
-            for (Object object: objectFinishLine){
-                object.setScene(malam);
-                for(Object objectChild: object.getChildObject()){
-                    objectChild.setScene(malam);
-                }
-            }
-
-            for (Object object: objectTrack){
-                object.setScene(malam);
-                for(Object objectChild: object.getChildObject()){
-                    objectChild.setScene(malam);
-                }
-            }
             delay2 = true;
         }
 
@@ -235,6 +197,7 @@ public class Main {
             }
             camera.setPosition(verticesK.get((int)rotation).x,verticesK.get((int)rotation).y, verticesK.get((int)rotation).z);
         }
+
 
         if (window.isKeyPressed(GLFW_KEY_UP)) {
             if (modeToggle == 2) {
@@ -487,30 +450,6 @@ public class Main {
             }
 
             for (Object object: objectGround) {
-                object.draw(camera, projection);
-            }
-
-            for (Object object: objectTrack){
-                object.draw(camera, projection);
-            }
-
-            for (Object object: objectOuterWall){
-                object.draw(camera, projection);
-            }
-
-            for (Object object: objectLighthouse){
-                object.draw(camera, projection);
-            }
-
-            for (Object object: objectPagar){
-                object.draw(camera, projection);
-            }
-
-            for (Object object: objectFinishLine){
-                object.draw(camera, projection);
-            }
-
-            for (Object object: objectBotol){
                 object.draw(camera, projection);
             }
 
