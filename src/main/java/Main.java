@@ -103,7 +103,7 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,0f,1f,1.0f),
+                new Vector4f(0.340f,0.250f,0.177f,1.0f),
                 "resources/model/toko/atap1.obj"
         ));
 
@@ -116,12 +116,129 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f),
+                new Vector4f(0.640f,0.513f,0.410f,1.0f),
                 "resources/model/toko/lt1.obj"
         ));
 
         objectToko.get(2).scaleObject(0.1f,0.1f,0.1f);
         objectToko.get(2).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.960f,0.710f,0.710f,1.0f),
+                "resources/model/toko/bannerlt1.obj"
+        ));
+
+        objectToko.get(3).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(3).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.610f,0.533f,0.470f,1.0f),
+                "resources/model/toko/penyanggalt1.obj"
+        ));
+
+        objectToko.get(4).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(4).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f),
+                "resources/model/toko/piring_dan_kertas.obj"
+        ));
+
+        objectToko.get(5).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(5).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,0f,1.0f),
+                "resources/model/toko/gelas.obj"
+        ));
+
+        objectToko.get(6).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(6).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.137f,0.530f,0.0848f,1.0f),
+                "resources/model/toko/botol.obj"
+        ));
+
+        objectToko.get(7).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(7).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,0f,0f,1.0f),
+                "resources/model/toko/lampion.obj"
+        ));
+
+        objectToko.get(8).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(8).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.340f,0.250f,0.177f,1.0f),
+                "resources/model/toko/kursitinggiobj.obj"
+        ));
+
+        objectToko.get(9).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(9).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f),
+                "resources/model/toko/bawahgalon.obj"
+        ));
+
+        objectToko.get(10).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(10).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,1f,1f,1.0f),
+                "resources/model/toko/galon.obj"
+        ));
+
+        objectToko.get(11).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(11).translateObject(0.0f, 0.0f, 0f);
 
 
 
