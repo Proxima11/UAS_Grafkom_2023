@@ -183,6 +183,27 @@ public class Object extends ShaderProgram{
         }
     }
 
+    public void draw_ground(Camera camera, Projection projection){
+        drawSetup(camera, projection);
+        // Draw the vertices
+        //optional
+        glLineWidth(10); //ketebalan garis
+        glPointSize(10); //besar kecil vertex
+        //wajib
+        //GL_LINES
+        //GL_LINE_STRIP
+        //GL_LINE_LOOP
+        //GL_TRIANGLES
+        //GL_TRIANGLE_FAN
+        //GL_POINT
+        glDrawArrays(GL_POLYGON,
+                0,
+                vertices.size());
+        for(Object child:childObject){
+            child.draw(camera,projection);
+        }
+    }
+
     public void translateObject(Float offsetX,Float offsetY,Float offsetZ){
         model = new Matrix4f().translate(offsetX,offsetY,offsetZ).mul(new Matrix4f(model));
         // update center point tak apus buat rotasi di tempat
