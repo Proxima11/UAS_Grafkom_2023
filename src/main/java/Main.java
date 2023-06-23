@@ -65,6 +65,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,0f,1f,1.0f),
                 "resources/model/Bottle/Bottle.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectObj.get(0).scaleObject(0.01f,0.01f,0.01f);
@@ -92,6 +93,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,0f,0f,1.0f),
                 "resources/model/toko/lt2.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(0).scaleObject(0.1f,0.1f,0.1f);
@@ -105,6 +107,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
                 "resources/model/toko/atap1.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(1).scaleObject(0.1f,0.1f,0.1f);
@@ -118,6 +121,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.640f,0.513f,0.410f,1.0f),
                 "resources/model/toko/lt1.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(2).scaleObject(0.1f,0.1f,0.1f);
@@ -131,6 +135,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.960f,0.710f,0.710f,1.0f),
                 "resources/model/toko/bannerlt1.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(3).scaleObject(0.1f,0.1f,0.1f);
@@ -144,6 +149,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.610f,0.533f,0.470f,1.0f),
                 "resources/model/toko/penyanggalt1.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(4).scaleObject(0.1f,0.1f,0.1f);
@@ -157,6 +163,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,1f,1f,1.0f),
                 "resources/model/toko/piring_dan_kertas.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(5).scaleObject(0.1f,0.1f,0.1f);
@@ -170,6 +177,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,1f,0f,1.0f),
                 "resources/model/toko/gelas.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(6).scaleObject(0.1f,0.1f,0.1f);
@@ -183,6 +191,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.137f,0.530f,0.0848f,1.0f),
                 "resources/model/toko/botol.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(7).scaleObject(0.1f,0.1f,0.1f);
@@ -196,6 +205,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,0f,0f,1.0f),
                 "resources/model/toko/lampion.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(8).scaleObject(0.1f,0.1f,0.1f);
@@ -209,6 +219,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
                 "resources/model/toko/kursitinggiobj.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(9).scaleObject(0.1f,0.1f,0.1f);
@@ -222,6 +233,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,1f,1f,1.0f),
                 "resources/model/toko/bawahgalon.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(10).scaleObject(0.1f,0.1f,0.1f);
@@ -235,6 +247,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0f,1f,1f,1.0f),
                 "resources/model/toko/galon.obj"
+                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(11).scaleObject(0.1f,0.1f,0.1f);

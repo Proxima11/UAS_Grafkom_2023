@@ -26,6 +26,7 @@ public class Object extends ShaderProgram{
     List<Object> childObject;
     List<Float> centerPoint;
     boolean scene = true;
+    Vector3f size;
 
     public void setScene(boolean scene) {
         this.scene = scene;
@@ -42,9 +43,10 @@ public class Object extends ShaderProgram{
 
     public Object(List<ShaderModuleData> shaderModuleDataList
             , List<Vector3f> vertices
-            , Vector4f color) {
+            , Vector4f color, Vector3f size) {
         super(shaderModuleDataList);
         this.vertices = vertices;
+        this.size = size;
 //        setupVAOVBO();
         uniformsMap = new UniformsMap(getProgramId());
         uniformsMap.createUniform(
