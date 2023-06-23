@@ -20,6 +20,7 @@ public class Main {
     private Window window = new Window(1080, 1080, "Hello World");
     ArrayList<Object> objectObj = new ArrayList<>();
     ArrayList<Object> objectGround = new ArrayList<>();
+    ArrayList<Object> objectToko = new ArrayList<>();
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
     float distance = 1f;
@@ -55,6 +56,7 @@ public class Main {
         GL.createCapabilities();
         camera.setPosition(0f, 0f, 2.5f + distance);
 
+        //botol sementara
         objectObj.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -81,6 +83,21 @@ public class Main {
 
         objectGround.get(0).scaleObject(0.01f,0.01f,0.01f);
         objectGround.get(0).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.330f,0.333f,0.333f,1.0f),
+                "resources/model/toko/untitled.obj"
+        ));
+
+        objectToko.get(0).scaleObject(0.5f,0.5f,0.5f);
+        objectToko.get(0).translateObject(0.0f, 1f, 0f);
+
+
 
     }
 
