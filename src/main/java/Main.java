@@ -71,18 +71,18 @@ public class Main {
         objectObj.get(0).translateObject(0.0f, 0.0f, 0f);
 
         //asteroid_Ground
-        objectGround.add(new Model(
-                Arrays.asList(
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-                ),
-                new ArrayList<>(),
-                new Vector4f(0.330f,0.333f,0.333f,1.0f),
-                "resources/model/asteroid/untitled.obj"
-        ));
-
-        objectGround.get(0).scaleObject(0.01f,0.01f,0.01f);
-        objectGround.get(0).translateObject(0.0f, 0.0f, 0f);
+//        objectGround.add(new Model(
+//                Arrays.asList(
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+//                ),
+//                new ArrayList<>(),
+//                new Vector4f(0.330f,0.333f,0.333f,1.0f),
+//                "resources/model/asteroid/untitled.obj"
+//        ));
+//
+//        objectGround.get(0).scaleObject(0.01f,0.01f,0.01f);
+//        objectGround.get(0).translateObject(0.0f, 0.0f, 0f);
 
         objectToko.add(new Model(
                 Arrays.asList(
@@ -90,12 +90,38 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(0.330f,0.333f,0.333f,1.0f),
-                "resources/model/toko/untitled.obj"
+                new Vector4f(1f,0f,0f,1.0f),
+                "resources/model/toko/lt2.obj"
         ));
 
-        objectToko.get(0).scaleObject(0.5f,0.5f,0.5f);
-        objectToko.get(0).translateObject(0.0f, 1f, 0f);
+        objectToko.get(0).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(0).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,0f,1f,1.0f),
+                "resources/model/toko/atap1.obj"
+        ));
+
+        objectToko.get(1).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(1).translateObject(0.0f, 0.0f, 0f);
+
+        objectToko.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f),
+                "resources/model/toko/lt1.obj"
+        ));
+
+        objectToko.get(2).scaleObject(0.1f,0.1f,0.1f);
+        objectToko.get(2).translateObject(0.0f, 0.0f, 0f);
 
 
 
@@ -467,6 +493,10 @@ public class Main {
             }
 
             for (Object object: objectGround) {
+                object.draw(camera, projection);
+            }
+
+            for (Object object: objectToko) {
                 object.draw(camera, projection);
             }
 
