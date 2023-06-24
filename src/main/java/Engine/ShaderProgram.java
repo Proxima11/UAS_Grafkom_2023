@@ -1,11 +1,16 @@
 
 package Engine;
 
+import org.joml.Matrix4f;
+import org.lwjgl.BufferUtils;
+import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 
+import java.nio.FloatBuffer;
 import java.util.*;
 
 import static org.lwjgl.opengl.GL30.*;
+
 
 public class ShaderProgram {
 
@@ -75,6 +80,15 @@ public class ShaderProgram {
         if (glGetProgrami(programId, GL_VALIDATE_STATUS) == 0) {
             throw new RuntimeException("Error validating Shader code: " + glGetProgramInfoLog(programId, 1024));
         }
+    }
+
+    protected void bindAttribute(int attribute, String variableName){
+        GL20.glBindAttribLocation(getProgramId(), attribute, variableName);
+    }
+
+
+    protected int getUniformLocation(String UniformName){
+        return GL20.glGetUniformLocation(getProgramId(), UniformName);
     }
 
     public record ShaderModuleData(String shaderFile, int shaderType) {

@@ -386,4 +386,5 @@ public class Object extends ShaderProgram{
     public Vector3f getSize(){
         return new Vector3f();
     }
+
 }
