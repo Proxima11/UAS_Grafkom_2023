@@ -244,14 +244,14 @@ public class Square extends Object{
         setupVAOVBO();
     }
 
-    public void setIndicies(List<Integer> indicies){
-        this.index = indicies;
-        setupVAOVBO();
-        //ibo
-        ibo = glGenBuffers();
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ibo);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER,Utils.listoInt(index),GL_STATIC_DRAW);
-    }
+//    public void setIndicies(List<Integer> indicies){
+//        this.index = indicies;
+//        setupVAOVBO();
+//        //ibo
+//        ibo = glGenBuffers();
+//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ibo);
+//        glBufferData(GL_ELEMENT_ARRAY_BUFFER,Utils.listoInt(index),GL_STATIC_DRAW);
+//    }
 
     public ArrayList<Boolean> checkCollision(Vector3f position, Vector3f size){
 

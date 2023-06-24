@@ -30,6 +30,8 @@ public class Main {
     ArrayList<Object> objectFountain = new ArrayList<>();
     ArrayList<Object> objectAstronaut = new ArrayList<>();
 
+    Skybox sk;
+
 
     ArrayList<Object> posisiLight = new ArrayList<>();
     ArrayList<Object> hitboxEnvironment = new ArrayList<>();
@@ -864,6 +866,19 @@ public class Main {
             objectSampah.get(i).translateObject(0.0f, 0.0f, -0.6f);
         }
 
+        this.sk = new Skybox(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData(
+                                "resources/shaders/skybox.vert"
+                                , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData(
+                                "resources/shaders/skybox.frag"
+                                , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.0f,1.0f,0.0f,1.0f), "skybox"
+        );
+
         hitbox();
     }
 
@@ -1313,6 +1328,35 @@ public class Main {
             }
         }
 
+        //CINEMATIC
+        else if (window.isKeyPressed(GLFW_KEY_F3)){
+            Vector3f posObj = objectGround.get(0).model.transformPosition(new Vector3f());
+            float posX = camera.getPosition().x;
+            float posY = camera.getPosition().y;
+            float posZ = camera.getPosition().z;
+
+            ArrayList<Vector3f> verticesK = new ArrayList<>(List.of());
+
+            for(float i = 0;i<360;i+=0.1) {
+                float x = (float) (posObj.x + 1f * Math.sin(Math.toRadians(i)));
+                float z = (float) (posObj.z + 1f * Math.cos(Math.toRadians(i)));
+                float y =(float) posObj.y+0.3f;
+                verticesK.add(new Vector3f(x, y, z));
+            }
+            camera.setPosition(verticesK.get(0).x, verticesK.get(0).y, verticesK.get(0).z);
+
+            camera.setPosition(-posX, -posY, -posZ);
+            camera.addRotation(0.0f, (float) Math.toRadians(-0.1f));
+            camera.setPosition(posX, posY, posZ);
+
+            rotation += 0.1f;
+
+            if (rotation >= 360.0) {
+                rotation = 0.0f;
+            }
+            camera.setPosition(verticesK.get((int)rotation).x,verticesK.get((int)rotation).y, verticesK.get((int)rotation).z);
+        }
+
         if (window.isKeyPressed(GLFW_KEY_N)){
             if (!collision.get(5)) {
                 hitboxPerson.get(0).translateObject(0f, 0f ,0.005f);
@@ -1664,6 +1708,8 @@ public class Main {
             }
 
             // code here
+            sk.draw(camera, projection);
+
             for (Object object: objectObj) {
                 object.draw(camera, projection);
             }

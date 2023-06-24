@@ -1,14 +1,14 @@
-#version 400
+#version 330
 
-in vec3 position;
+layout (location=0) in vec3 position;
+
 out vec3 textureCoords;
 
-uniform mat4 projectionMatrix;
-uniform mat4 viewMatrix;
 
-void main(void){
+uniform mat4 view;
+uniform mat4 projection;
 
-    gl_Position = projectionMatrix * viewMatrix * vec4(position, 1.0);
+void main() {
+    gl_Position = projection * view * vec4(position, 1.0);
     textureCoords = position;
-
 }
