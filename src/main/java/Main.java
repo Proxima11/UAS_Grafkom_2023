@@ -29,6 +29,8 @@ public class Main {
     ArrayList<Object> objectFountain = new ArrayList<>();
     ArrayList<Object> objectAstronaut = new ArrayList<>();
 
+
+    ArrayList<Object> posisiLight = new ArrayList<>();
     ArrayList<Object> hitboxEnvironment = new ArrayList<>();
     ArrayList<Object> hitboxPerson = new ArrayList<>();
     ArrayList<Object> hitboxAlien = new ArrayList<>();
@@ -780,6 +782,56 @@ public class Main {
         }
 
         hitbox();
+        testLight();
+    }
+
+    public void testLight(){
+        posisiLight.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,1f,0f,1.0f), new Vector3f(0,0,0), 0.05f, 0.05f, 0.05f
+        ));
+        posisiLight.get(0).translateObject(1.16f, 0.75f, 0.55f);
+        posisiLight.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,1f,0f,1.0f), new Vector3f(0,0,0), 0.05f, 0.05f, 0.05f
+        ));
+        posisiLight.get(1).translateObject(1.46f, 0.73f, 0.55f);
+        posisiLight.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,1f,0f,1.0f), new Vector3f(0,0,0), 0.05f, 0.05f, 0.05f
+        ));
+        posisiLight.get(2).translateObject(1.8f, 0.71f, 0.55f);
+        posisiLight.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,1f,0f,1.0f), new Vector3f(0,0,0), 0.05f, 0.05f, 0.05f
+        ));
+        posisiLight.get(3).translateObject(2.13f, 0.72f, 0.55f);
+        posisiLight.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,1f,0f,1.0f), new Vector3f(0,0,0), 0.05f, 0.05f, 0.05f
+        ));
+        posisiLight.get(4).translateObject(2.43f, 0.75f, 0.55f);
+
     }
 
     public void hitbox(){
@@ -1284,6 +1336,10 @@ public class Main {
 
             for (Object object: objectFountain) {
                 object.draw(camera, projection);
+            }
+
+            for (Object object: posisiLight){
+                object.drawLine(camera, projection);
             }
 
             for (Object object: hitboxEnvironment){
