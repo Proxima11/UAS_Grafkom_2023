@@ -1,0 +1,32 @@
+# Blender 3.5.1 MTL File: 'None'
+# www.blender.org
+
+newmtl Material_#2
+Ns 20.000006
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 1
+map_Kd C:/fountain_base_tex.png
+map_d C:/fountain_base_tex.png
+
+newmtl Material_#23
+Ns 20.000006
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 1
+map_Kd C:/fountain_shaft_water_posters_tex.png
+map_d C:/fountain_shaft_water_posters_tex.png
+
+newmtl Material_#3
+Ns 20.000006
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 1
+map_Kd C:/fountain_water_tex.png
+map_d C:/fountain_water_tex.png

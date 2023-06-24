@@ -26,6 +26,7 @@ public class Main {
     ArrayList<Object> objectSampah = new ArrayList<>();
     ArrayList<Object> objectMejaKursi = new ArrayList<>();
     ArrayList<Object> objectSpaceship = new ArrayList<>();
+    ArrayList<Object> objectFountain = new ArrayList<>();
 
     ArrayList<Object> hitboxEnvironment = new ArrayList<>();
     ArrayList<Object> hitboxPerson = new ArrayList<>();
@@ -652,6 +653,32 @@ public class Main {
         objectSpaceship.get(4).scaleObject(0.4f,0.4f,0.4f);
         objectSpaceship.get(4).translateObject(-2.7f, -0.0f, 0.5f);
 
+        objectFountain.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.670f,0.670f,0.670f,1.0f),
+                "resources/model/fountain/badanfountain.obj"
+        ));
+
+        objectFountain.get(0).scaleObject(0.15f,0.15f,0.15f);
+        objectFountain.get(0).translateObject(-1.9f, 0.0f, -0.9f);
+
+        objectFountain.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.0192f,0.402f,0.640f,1.0f),
+                "resources/model/fountain/air.obj"
+        ));
+
+        objectFountain.get(1).scaleObject(0.15f,0.15f,0.15f);
+        objectFountain.get(1).translateObject(-1.9f, 0.0f, -0.9f);
+
         for(int i = 0; i < objectToko.size(); i++){
             objectToko.get(i).translateObject(0.0f, 0.0f, -0.6f);
         }
@@ -1052,6 +1079,10 @@ public class Main {
 
             for (Object object: objectSpaceship) {
                 object.draw_mejakursi(camera, projection);
+            }
+
+            for (Object object: objectFountain) {
+                object.draw(camera, projection);
             }
 
             for (Object object: hitboxEnvironment){
