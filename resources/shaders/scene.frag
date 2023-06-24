@@ -41,7 +41,7 @@ struct SpotLight {
     float quadratic;
 };
 
-#define NR_SPOT_LIGHTS 4
+#define NR_SPOT_LIGHTS 1
 uniform SpotLight SpotLight1[NR_SPOT_LIGHTS];
 
 uniform SpotLight spotLight;
@@ -138,6 +138,9 @@ void main() {
 
     // Spot Light
     result += CalcSpotLight(spotLight, normal, FragPos, viewDir);
+    for(int i = 0; i< NR_SPOT_LIGHTS; i++){
+        result += CalcSpotLight(SpotLight1[i], normal, FragPos, viewDir);
+    }
 
     frag_color = vec4(result * vec3(uni_color), 1.0f);
 }
