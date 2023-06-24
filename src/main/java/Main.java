@@ -115,6 +115,16 @@ public class Main {
         ));
         hitboxEnvironment.get(1).translateObject(0.55f, 0.5f, 0f);
 
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 1.1f, 1f, 1f
+        ));
+        hitboxEnvironment.get(2).translateObject(0.1f, 0.5f, 0f);
+
         objectToko.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
