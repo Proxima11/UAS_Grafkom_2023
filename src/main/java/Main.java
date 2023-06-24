@@ -27,6 +27,7 @@ public class Main {
     ArrayList<Object> objectMejaKursi = new ArrayList<>();
     ArrayList<Object> objectSpaceship = new ArrayList<>();
     ArrayList<Object> objectFountain = new ArrayList<>();
+    ArrayList<Object> objectAstronaut = new ArrayList<>();
 
     ArrayList<Object> hitboxEnvironment = new ArrayList<>();
     ArrayList<Object> hitboxPerson = new ArrayList<>();
@@ -679,6 +680,128 @@ public class Main {
         objectFountain.get(1).scaleObject(0.15f,0.15f,0.15f);
         objectFountain.get(1).translateObject(-1.9f, 0.0f, -0.9f);
 
+        objectAstronaut.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f),
+                "resources/model/astronaut/helm.obj"
+        ));
+
+        objectAstronaut.get(0).scaleObject(0.2f,0.2f,0.2f);
+        objectAstronaut.get(0).translateObject(-2.2f, 0.0f, -0.0f);
+
+        objectAstronaut.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,0f,0f,1.0f),
+                "resources/model/astronaut/tutuphelm.obj"
+        ));
+
+        objectAstronaut.get(1).scaleObject(0.2f,0.2f,0.2f);
+        objectAstronaut.get(1).translateObject(-2.185f, 0.0f, -0.0f);
+
+        objectAstronaut.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f),
+                "resources/model/astronaut/badan2.obj"
+        ));
+
+        objectAstronaut.get(2).scaleObject(0.2f,0.2f,0.2f);
+        objectAstronaut.get(2).translateObject(-2.185f, 0.0f, -0.0f);
+
+        objectAstronaut.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f),
+                "resources/model/astronaut/tangankiri.obj"
+        ));
+
+        objectAstronaut.get(3).scaleObject(0.2f,0.2f,0.2f);
+        objectAstronaut.get(3).translateObject(-2.185f, 0.0f, -0.0f);
+
+        objectAstronaut.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f),
+                "resources/model/astronaut/tangankanan.obj"
+        ));
+
+        objectAstronaut.get(4).scaleObject(0.2f,0.2f,0.2f);
+        objectAstronaut.get(4).translateObject(-2.185f, 0.0f, -0.0f);
+
+        objectAstronaut.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f),
+                "resources/model/astronaut/kakikiri.obj"
+        ));
+
+        objectAstronaut.get(5).scaleObject(0.2f,0.2f,0.2f);
+        objectAstronaut.get(5).translateObject(-2.185f, 0.0f, -0.0f);
+
+        objectAstronaut.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f),
+                "resources/model/astronaut/kakikanan.obj"
+        ));
+
+        objectAstronaut.get(6).scaleObject(0.2f,0.2f,0.2f);
+        objectAstronaut.get(6).translateObject(-2.185f, 0.0f, -0.0f);
+
+        objectAstronaut.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.210f,0.151f,0.0840f,1.0f),
+                "resources/model/astronaut/tas.obj"
+        ));
+
+        objectAstronaut.get(7).scaleObject(0.2f,0.2f,0.2f);
+        objectAstronaut.get(7).translateObject(-2.185f, 0.0f, -0.0f);
+
+        for (int i = 0; i < objectAstronaut.size(); i++){
+            objectAstronaut.get(i).scaleObject(0.8f, 0.8f, 0.8f);
+            objectAstronaut.get(i).rotateObject(-0.5f, 0f, 1f, 0.0f);
+            objectAstronaut.get(i).translateObject(-0.5f, 0.0f, 1.2f);
+        }
+//        objectAstronaut.add(new Model(
+//                Arrays.asList(
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+//                ),
+//                new ArrayList<>(),
+//                new Vector4f(1f,1f,1f,1.0f),
+//                "resources/model/astronaut/badan.obj"
+//        ));
+//
+//        objectAstronaut.get(1).scaleObject(0.05f,0.05f,0.05f);
+//        objectAstronaut.get(1).translateObject(-2.2f, 0.0f, -0.0f);
+
         for(int i = 0; i < objectToko.size(); i++){
             objectToko.get(i).translateObject(0.0f, 0.0f, -0.6f);
         }
@@ -708,6 +831,13 @@ public class Main {
             }
 
             for (Object object: objectMejaKursi){
+                object.setScene(malam);
+                for(Object objectChild: object.getChildObject()){
+                    objectChild.setScene(malam);
+                }
+            }
+
+            for (Object object: objectAstronaut){
                 object.setScene(malam);
                 for(Object objectChild: object.getChildObject()){
                     objectChild.setScene(malam);
@@ -1078,6 +1208,10 @@ public class Main {
             }
 
             for (Object object: objectSpaceship) {
+                object.draw_mejakursi(camera, projection);
+            }
+
+            for (Object object: objectAstronaut) {
                 object.draw_mejakursi(camera, projection);
             }
 
