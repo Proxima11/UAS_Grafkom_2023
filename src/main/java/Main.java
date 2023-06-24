@@ -96,36 +96,6 @@ public class Main {
         objectGround.get(0).scaleObject(0.05f,0.05f,0.03f);
         objectGround.get(0).translateObject(-0.1f, -0.82f, 0.05f);
 
-        hitboxEnvironment.add(new Square(
-                Arrays.asList(
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-                ),
-                new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 1f, 1.4f
-        ));
-        hitboxEnvironment.get(0).translateObject(-0.35f, 0.5f, -0.6f);
-
-        hitboxEnvironment.add(new Square(
-                Arrays.asList(
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-                ),
-                new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 1f, 1.4f
-        ));
-        hitboxEnvironment.get(1).translateObject(0.55f, 0.5f, -0.6f);
-
-        hitboxEnvironment.add(new Square(
-                Arrays.asList(
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-                ),
-                new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 1.1f, 1f, 1f
-        ));
-        hitboxEnvironment.get(2).translateObject(0.1f, 0.5f, -0.6f);
-
         objectToko.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -685,6 +655,97 @@ public class Main {
         for(int i = 0; i < objectSampah.size(); i++){
             objectSampah.get(i).translateObject(0.0f, 0.0f, -0.6f);
         }
+
+        hitbox();
+    }
+
+    public void hitbox(){
+        // kotak toko
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 1f, 1.4f
+        ));
+        hitboxEnvironment.get(0).translateObject(-0.35f, 0.5f, -0.6f);
+
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 1f, 1.4f
+        ));
+        hitboxEnvironment.get(1).translateObject(0.55f, 0.5f, -0.6f);
+
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 1.1f, 1f, 1f
+        ));
+        hitboxEnvironment.get(2).translateObject(0.1f, 0.5f, -0.6f);
+
+        // lentera
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.15f, 0.25f, 0.15f
+        ));
+        hitboxEnvironment.get(3).translateObject(-0.575f, 0.625f, 0.2f);
+
+        // kursi toko 1
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.125f, 0.25f, 0.125f
+        ));
+        hitboxEnvironment.get(4).translateObject(-0.11f, 0.15f, -0.025f);
+
+        // kursi toko 2
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.125f, 0.25f, 0.125f
+        ));
+        hitboxEnvironment.get(5).translateObject(0.155f, 0.15f, -0.025f);
+
+        // kotak sampah kiri
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.15f, 0.25f, 0.3f
+        ));
+        hitboxEnvironment.get(6).translateObject(-0.525f, 0.15f, -0.05f);
+
+        // flag banner
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 0.25f, 0.3f
+        ));
+        hitboxEnvironment.get(7).translateObject(-0.75f, 0.15f, -0.05f);
+
     }
 
     public void input() {
@@ -813,6 +874,12 @@ public class Main {
         }
         if (window.isKeyPressed(GLFW_KEY_E)){
             camera.moveBackwards(0.05f);
+        }
+        if (window.isKeyPressed(GLFW_KEY_R)){
+            camera.moveLeft(0.05f);
+        }
+        if (window.isKeyPressed(GLFW_KEY_T)){
+            camera.moveRight(0.05f);
         }
 
 
