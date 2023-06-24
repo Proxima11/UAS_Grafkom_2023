@@ -1252,22 +1252,34 @@ public class Main {
         if (window.isKeyPressed(GLFW_KEY_H)){
             if (!collision.get(6)) {
                 hitboxPerson.get(0).translateObject(0f, 0f, -0.005f);
+                for (Object object: objectAstronaut){
+                    object.translateObject(0f, 0f, -0.005f);
+                }
             }
         }
         else if (window.isKeyPressed(GLFW_KEY_B)){
             if (!collision.get(2)) {
                 hitboxPerson.get(0).translateObject(-0.005f, 0f, 0f);
+                for (Object object: objectAstronaut){
+                    object.translateObject(-0.005f, 0f, 0f);
+                }
             }
         }
 
         if (window.isKeyPressed(GLFW_KEY_N)){
             if (!collision.get(5)) {
                 hitboxPerson.get(0).translateObject(0f, 0f ,0.005f);
+                for (Object object: objectAstronaut){
+                    object.translateObject(0f, 0f, 0.005f);
+                }
             }
         }
         else if (window.isKeyPressed(GLFW_KEY_M)){
             if (!collision.get(1)) {
                 hitboxPerson.get(0).translateObject(0.005f, 0f, 0f);
+                for (Object object: objectAstronaut){
+                    object.translateObject(0.005f, 0f, 0f);
+                }
             }
         }
         
