@@ -872,7 +872,7 @@ public class Main {
     }
 
     public void input() {
-        temp = objectObj.get(0).getCenterPoint();
+        Vector3f temp = objectObj.get(0).getCenterPoint();
         angle = angle % (float) Math.toRadians(360);
 
         if (window.isKeyPressed(GLFW_KEY_L) && !delay2){
@@ -1127,7 +1127,7 @@ public class Main {
                 }
 
                 if (900 <= carPos && carPos < 990) {
-                    List<Float> temp = objectObj.get(1).getCenterPoint();
+                    Vector3f temp = objectObj.get(1).getCenterPoint();
                     objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                     objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
                     objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
@@ -1139,7 +1139,7 @@ public class Main {
                 }
 
                 if (1250 <= carPos && carPos < 1340) {
-                    List<Float> temp = objectObj.get(1).getCenterPoint();
+                    Vector3f temp = objectObj.get(1).getCenterPoint();
                     objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                     objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
                     objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
@@ -1151,7 +1151,7 @@ public class Main {
                 }
 
                 if (2330 <= carPos && carPos < 2420) {
-                    List<Float> temp = objectObj.get(1).getCenterPoint();
+                    Vector3f temp = objectObj.get(1).getCenterPoint();
                     objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                     objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
                     objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
@@ -1163,7 +1163,7 @@ public class Main {
                 }
 
                 if (2680 <= carPos && carPos < 2770) {
-                    List<Float> temp = objectObj.get(1).getCenterPoint();
+                    Vector3f temp = objectObj.get(1).getCenterPoint();
                     objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                     objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
                     objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
@@ -1181,7 +1181,7 @@ public class Main {
 
             if (modeToggle > 0) {
                 if (modeToggle == 1) {
-                    List<Float> temp = objectObj.get(0).getCenterPoint();
+                    Vector3f temp = objectObj.get(0).getCenterPoint();
                     camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
                     camera.moveBackwards(distance);
                 }
@@ -1192,7 +1192,7 @@ public class Main {
                 }
 
                 if (660 <= carPos2 && carPos2 < 750) {
-                    List<Float> temp = objectObj.get(0).getCenterPoint();
+                    Vector3f temp = objectObj.get(0).getCenterPoint();
                     objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                     objectObj.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
                     objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
@@ -1205,7 +1205,7 @@ public class Main {
                 }
 
                 if (1000 <= carPos2 && carPos2 < 1090) {
-                    List<Float> temp = objectObj.get(0).getCenterPoint();
+                    Vector3f temp = objectObj.get(0).getCenterPoint();
                     objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                     objectObj.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
                     objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
@@ -1218,7 +1218,7 @@ public class Main {
                 }
 
                 if (1820 <= carPos2 && carPos2 < 1910) {
-                    List<Float> temp = objectObj.get(0).getCenterPoint();
+                    Vector3f temp = objectObj.get(0).getCenterPoint();
                     objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                     objectObj.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
                     objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
@@ -1231,7 +1231,7 @@ public class Main {
                 }
 
                 if (2160 <= carPos2 && carPos2 < 2250) {
-                    List<Float> temp = objectObj.get(0).getCenterPoint();
+                    Vector3f temp = objectObj.get(0).getCenterPoint();
                     objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                     objectObj.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
                     objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));

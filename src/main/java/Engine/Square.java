@@ -253,18 +253,53 @@ public class Square extends Object{
         glBufferData(GL_ELEMENT_ARRAY_BUFFER,Utils.listoInt(index),GL_STATIC_DRAW);
     }
 
-    public boolean checkCollision(Vector3f position, Vector3f size){
+    public ArrayList<Boolean> checkCollision(Vector3f position, Vector3f size){
 
-        if (((position.x + size.x) > (centerPoint.x - radiusX) && (position.x + size.x) < (centerPoint.x + radiusX)) ||
-            ((position.x - size.x) > (centerPoint.x - radiusX) && (position.x - size.x) < (centerPoint.x + radiusX))) {
-            return true;
+        boolean xPosCol = false;
+        boolean yPosCol = false;
+        boolean zPosCol = false;
+        boolean xNegCol = false;
+        boolean yNegCol = false;
+        boolean zNegCol = false;
+
+        if ((position.x + size.x/2) >= (centerPoint.x - radiusX/2) && (position.x + size.x/2) <= (centerPoint.x + radiusX/2)) {
+            xPosCol = true;
+        }
+        if ((position.x - size.x/2) >= (centerPoint.x - radiusX/2) && (position.x - size.x/2) <= (centerPoint.x + radiusX/2)) {
+            xNegCol = true;
+        }
+        if ((position.y + size.y/2) >= (centerPoint.y - radiusY/2) && (position.y + size.y/2) <= (centerPoint.y + radiusY/2)){
+            yPosCol = true;
+        }
+        if ((position.y - size.y/2) >= (centerPoint.y - radiusY/2) && (position.y - size.y/2) <= (centerPoint.y + radiusY/2)){
+            yNegCol = true;
+        }
+        if ((position.z + size.z/2) >= (centerPoint.z - radiusZ/2) && (position.z + size.z/2) <= (centerPoint.z + radiusZ/2)){
+            zPosCol = true;
+        }
+        if ((position.z - size.z/2) >= (centerPoint.z - radiusZ/2) && (position.z - size.z/2) <= (centerPoint.z + radiusZ/2)) {
+            zNegCol = true;
         }
 
-        if (((position.z + size.z) > (centerPoint.z - radiusZ) && (position.z + size.z) < (centerPoint.z + radiusZ)) ||
-                ((position.z - size.z) > (centerPoint.z - radiusZ) && (position.z - size.z) < (centerPoint.z + radiusZ))) {
-            return true;
-        }
 
-        return false;
+        ArrayList<Boolean> movement = new ArrayList<>();
+        if ((xPosCol || xNegCol) && (yPosCol || yNegCol) && (zPosCol || zNegCol)){
+            movement.add(true);
+        }
+        else{
+            movement.add(false);
+        }
+        movement.add(xPosCol);
+        movement.add(xNegCol);
+        movement.add(yPosCol);
+        movement.add(yNegCol);
+        movement.add(zPosCol);
+        movement.add(zNegCol);
+
+        return movement;
+    }
+
+    public Vector3f getSize(){
+        return new Vector3f(radiusX, radiusY, radiusZ);
     }
 }

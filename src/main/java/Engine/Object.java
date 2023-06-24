@@ -5,7 +5,6 @@ import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.lwjgl.opengl.GL15.*;
@@ -24,7 +23,7 @@ public class Object extends ShaderProgram{
     Vector4f color;
     public Matrix4f model;
     List<Object> childObject;
-    List<Float> centerPoint;
+    Vector3f centerPoint;
     boolean scene = true;
 
     public void setScene(boolean scene) {
@@ -35,7 +34,7 @@ public class Object extends ShaderProgram{
         return childObject;
     }
 
-    public List<Float> getCenterPoint() {
+    public Vector3f getCenterPoint() {
         updateCenterPoint();
         return centerPoint;
     }
@@ -82,7 +81,7 @@ public class Object extends ShaderProgram{
         this.color = color;
         model = new Matrix4f().identity();
         childObject = new ArrayList<>();
-        centerPoint = Arrays.asList(0f,0f,0f);
+        centerPoint = new Vector3f(0f,0f,0f);
     }
 
     public void setupVAOVBO(){
@@ -243,9 +242,7 @@ public class Object extends ShaderProgram{
     public void updateCenterPoint(){
         Vector3f destTemp = new Vector3f();
         model.transformPosition(0.0f,0.0f,0.0f,destTemp);
-        centerPoint.set(0,destTemp.x);
-        centerPoint.set(1,destTemp.y);
-        centerPoint.set(2,destTemp.z);
+        this.centerPoint = destTemp;
     }
     public void scaleObject(Float scaleX,Float scaleY,Float scaleZ){
         model = new Matrix4f().scale(scaleX,scaleY,scaleZ).mul(new Matrix4f(model));
@@ -258,5 +255,18 @@ public class Object extends ShaderProgram{
         drawSetup(camera, projection);
         glDrawArrays(GL_LINE_LOOP, 0,
                 vertices.size());
+    }
+
+    public ArrayList<Boolean> checkCollision(Vector3f position, Vector3f size){
+
+        boolean xCol = false;
+        boolean yCol = false;
+        boolean zCol = false;
+
+        return new ArrayList<>();
+    }
+
+    public Vector3f getSize(){
+        return new Vector3f();
     }
 }
