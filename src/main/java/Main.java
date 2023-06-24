@@ -722,7 +722,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(1f,1f,1f,1.0f),
-                "resources/model/astronaut/kakikiri.obj"
+                "resources/model/astronaut/kakikiri2.obj"
         ));
 
         objectAstronaut.get(5).scaleObject(0.2f,0.2f,0.2f);
@@ -735,7 +735,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(1f,1f,1f,1.0f),
-                "resources/model/astronaut/kakikanan.obj"
+                "resources/model/astronaut/kakikanan1.obj"
         ));
 
         objectAstronaut.get(6).scaleObject(0.2f,0.2f,0.2f);
