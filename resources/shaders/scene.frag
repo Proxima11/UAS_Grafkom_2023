@@ -41,6 +41,9 @@ struct SpotLight {
     float quadratic;
 };
 
+#define NR_SPOT_LIGHTS 4
+uniform SpotLight SpotLight1[NR_SPOT_LIGHTS];
+
 uniform SpotLight spotLight;
 uniform vec4 uni_color;
 out vec4 frag_color;
