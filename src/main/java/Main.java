@@ -842,9 +842,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 1f, 1.4f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-0.35f, 0.5f, -0.6f), 0.2f, 1f, 1.4f
         ));
-        hitboxEnvironment.get(0).translateObject(-0.35f, 0.5f, -0.6f);
 
         hitboxEnvironment.add(new Square(
                 Arrays.asList(
@@ -852,9 +851,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 1f, 1.4f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.55f, 0.5f, -0.6f), 0.2f, 1f, 1.4f
         ));
-        hitboxEnvironment.get(1).translateObject(0.55f, 0.5f, -0.6f);
 
         hitboxEnvironment.add(new Square(
                 Arrays.asList(
@@ -862,9 +860,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 1.1f, 1f, 1f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.1f, 0.5f, -0.6f), 1.1f, 1f, 1f
         ));
-        hitboxEnvironment.get(2).translateObject(0.1f, 0.5f, -0.6f);
 
         // lentera
         hitboxEnvironment.add(new Square(
@@ -873,9 +870,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.15f, 0.25f, 0.15f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-0.575f, 0.625f, 0.2f), 0.15f, 0.25f, 0.15f
         ));
-        hitboxEnvironment.get(3).translateObject(-0.575f, 0.625f, 0.2f);
 
         // kursi toko 1
         hitboxEnvironment.add(new Square(
@@ -884,9 +880,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.125f, 0.25f, 0.125f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-0.11f, 0.15f, -0.025f), 0.125f, 0.25f, 0.125f
         ));
-        hitboxEnvironment.get(4).translateObject(-0.11f, 0.15f, -0.025f);
 
         // kursi toko 2
         hitboxEnvironment.add(new Square(
@@ -895,9 +890,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.125f, 0.25f, 0.125f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.155f, 0.15f, -0.025f), 0.125f, 0.25f, 0.125f
         ));
-        hitboxEnvironment.get(5).translateObject(0.155f, 0.15f, -0.025f);
 
         // kotak sampah kiri
         hitboxEnvironment.add(new Square(
@@ -906,9 +900,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.15f, 0.25f, 0.3f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-0.525f, 0.15f, -0.05f), 0.15f, 0.25f, 0.3f
         ));
-        hitboxEnvironment.get(6).translateObject(-0.525f, 0.15f, -0.05f);
 
         // flag banner
         hitboxEnvironment.add(new Square(
@@ -917,9 +910,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 0.75f, 0.05f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-0.75f, 0.35f, -0.125f), 0.2f, 0.75f, 0.05f
         ));
-        hitboxEnvironment.get(7).translateObject(-0.75f, 0.35f, -0.125f);
 
         // meja 1
         hitboxEnvironment.add(new Square(
@@ -928,9 +920,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.65f, 0.4f, 0.5f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-1.3f, 0.1f, 0.8f), 0.65f, 0.4f, 0.5f
         ));
-        hitboxEnvironment.get(8).translateObject(-1.3f, 0.1f, 0.8f);
 
         // meja 2
         hitboxEnvironment.add(new Square(
@@ -939,9 +930,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.65f, 0.4f, 0.5f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0f, 0.1f, 1.1f), 0.65f, 0.4f, 0.5f
         ));
-        hitboxEnvironment.get(9).translateObject(0f, 0.1f, 1.1f);
 
         // meja 3
         hitboxEnvironment.add(new Square(
@@ -950,9 +940,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.65f, 0.4f, 0.5f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(1.2f, 0.1f, 1.1f), 0.65f, 0.4f, 0.5f
         ));
-        hitboxEnvironment.get(10).translateObject(1.2f, 0.1f, 1.1f);
 
         // light pole left
         hitboxEnvironment.add(new Square(
@@ -961,9 +950,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.3f, 1.1f, 0.3f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(1.1f, 0.4f, 0.45f), 0.3f, 1.1f, 0.3f
         ));
-        hitboxEnvironment.get(11).translateObject(1.1f, 0.4f, 0.45f);
 
         // light pole right
         hitboxEnvironment.add(new Square(
@@ -972,9 +960,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.3f, 1.1f, 0.3f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(2.5f, 0.4f, 0.45f), 0.3f, 1.1f, 0.3f
         ));
-        hitboxEnvironment.get(12).translateObject(2.5f, 0.4f, 0.45f);
 
         // small trash can
         hitboxEnvironment.add(new Square(
@@ -983,9 +970,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.1f, 0.2f, 0.1f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.7f, 0.125f, 0.105f), 0.1f, 0.2f, 0.1f
         ));
-        hitboxEnvironment.get(13).translateObject(0.7f, 0.125f, 0.105f);
 
         // box right side
         hitboxEnvironment.add(new Square(
@@ -994,9 +980,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.3f, 0.2f, 0.275f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.8f, 0.125f, -0.26f), 0.3f, 0.2f, 0.275f
         ));
-        hitboxEnvironment.get(14).translateObject(0.8f, 0.125f, -0.26f);
 
         // big trash can
         hitboxEnvironment.add(new Square(
@@ -1005,9 +990,8 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.3f, 0.6f, 0.7f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.8f, 0.125f, -0.855f), 0.3f, 0.6f, 0.7f
         ));
-        hitboxEnvironment.get(15).translateObject(0.8f, 0.125f, -0.855f);
 
         // fountain
         hitboxEnvironment.add(new Square(
@@ -1016,9 +1000,40 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 1f, 0.6f, 1f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-1.65f, 0.125f, -0.95f), 1f, 0.6f, 1f
         ));
-        hitboxEnvironment.get(16).translateObject(-1.65f, 0.125f, -0.95f);
+
+        hitboxPerson.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f,1f,1f,1.0f), new Vector3f(0,0,0), 0.25f, 0.4f, 0.25f
+        ));
+        hitboxPerson.get(0).translateObject(-2.075f, 0.175f, 0.32f);
+    }
+
+    public ArrayList<Boolean> checkCollision(){
+        ArrayList <Boolean> collision = new ArrayList<>();
+        for (int i=0; i<7; i++){
+            collision.add(false);
+        }
+        int ia=0;
+        for (Object object: hitboxEnvironment) {
+
+            ArrayList <Boolean> col = object.checkCollision(this.hitboxPerson.get(0).getCenterPoint(), this.hitboxPerson.get(0).getSize());
+            if (ia ==16) {System.out.println(col);}
+            if (col.get(0)) {
+                for (int i = 0; i < col.size(); i++) {
+                    if (col.get(i)) {
+                        collision.set(i, true);
+                    }
+                }
+            }
+            ia++;
+        }
+        return collision;
     }
 
     public void input() {
@@ -1226,6 +1241,34 @@ public class Main {
             camera.moveBackwards(distance);
 
             delay3 = true;
+        }
+
+        ArrayList<Boolean> collision = checkCollision();
+
+        for (boolean col: collision){
+            //System.out.println(collision);
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_H)){
+            if (!collision.get(6)) {
+                hitboxPerson.get(0).translateObject(0f, 0f, -0.005f);
+            }
+        }
+        else if (window.isKeyPressed(GLFW_KEY_B)){
+            if (!collision.get(2)) {
+                hitboxPerson.get(0).translateObject(-0.005f, 0f, 0f);
+            }
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_N)){
+            if (!collision.get(5)) {
+                hitboxPerson.get(0).translateObject(0f, 0f ,0.005f);
+            }
+        }
+        else if (window.isKeyPressed(GLFW_KEY_M)){
+            if (!collision.get(1)) {
+                hitboxPerson.get(0).translateObject(0.005f, 0f, 0f);
+            }
         }
         
     }
@@ -1441,6 +1484,10 @@ public class Main {
             }
 
             for (Object object: hitboxEnvironment){
+                object.drawLine(camera, projection);
+            }
+
+            for (Object object: hitboxPerson){
                 object.drawLine(camera, projection);
             }
 
