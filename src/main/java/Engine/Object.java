@@ -67,7 +67,7 @@ public class Object extends ShaderProgram{
             uniformsMap.createUniform("pointLight["+i+"].linear");
             uniformsMap.createUniform("pointLight["+i+"].quadratic");
         }
-        for(int i = 0; i < 1; i++){
+        for(int i = 0; i < 3; i++){
             uniformsMap.createUniform("SpotLight1["+i+"].position");
             uniformsMap.createUniform("SpotLight1["+i+"].direction");
             uniformsMap.createUniform("SpotLight1["+i+"].ambient");
@@ -198,35 +198,48 @@ public class Object extends ShaderProgram{
 
         // spotLight
         Vector3f[] SpotLightPositions = {
-                new Vector3f(0.5f, -5f, -1.6f),
-//                new Vector3f(-1.8f, 0.0f, -1.2f)
+                new Vector3f(-2.0f, -0.02f, -1.1f),
+                new Vector3f(-1.5f, -0.02f, -0.8f),
+                new Vector3f(-0.0f, 2f, 0.2f)
         };
 
         for(int i = 0; i < SpotLightPositions.length; i++){
             if(i == 0) {
                 uniformsMap.setUniform("SpotLight1[" + i + "].position", SpotLightPositions[i]);
-                uniformsMap.setUniform("SpotLight1[" + i + "].direction", new Vector3f(-1.9f, 0.0f, -1.2f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].direction", new Vector3f(0.0f, 3f, -1.0f));
                 uniformsMap.setUniform("SpotLight1[" + i + "].ambient", new Vector3f(0.0f, 0.0f, 0.0f));
                 uniformsMap.setUniform("SpotLight1[" + i + "].diffuse", new Vector3f(1.0f, 1.0f, 1.0f));
                 uniformsMap.setUniform("SpotLight1[" + i + "].specular", new Vector3f(1.0f, 1.0f, 1.0f));
                 uniformsMap.setUniform("SpotLight1[" + i + "].constant", 1.0f);
-                uniformsMap.setUniform("SpotLight1[" + i + "].linear", 0.045f);
-                uniformsMap.setUniform("SpotLight1[" + i + "].quadratic", 0.0075f);
-                uniformsMap.setUniform("SpotLight1[" + i + "].cutOff", 0f);
-                uniformsMap.setUniform("SpotLight1[" + i + "].outerCutOff", 17.5f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].linear", 0.022f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].quadratic", 0.0019f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].cutOff", 0.1f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].outerCutOff", 0f);
             }
-//            else if(i == 1) {
-//                uniformsMap.setUniform("SpotLight1[" + i + "].position", SpotLightPositions[i]);
-//                uniformsMap.setUniform("SpotLight1[" + i + "].direction", new Vector3f(-5.5f, -5f, -1.6f));
-//                uniformsMap.setUniform("SpotLight1[" + i + "].ambient", new Vector3f(0.0f, 0.0f, 0.0f));
-//                uniformsMap.setUniform("SpotLight1[" + i + "].diffuse", new Vector3f(1.0f, 1.0f, 1.0f));
-//                uniformsMap.setUniform("SpotLight1[" + i + "].specular", new Vector3f(1.0f, 1.0f, 1.0f));
-//                uniformsMap.setUniform("SpotLight1[" + i + "].constant", 1.0f);
-//                uniformsMap.setUniform("SpotLight1[" + i + "].linear", 0.045f);
-//                uniformsMap.setUniform("SpotLight1[" + i + "].quadratic", 0.0075f);
-//                uniformsMap.setUniform("SpotLight1[" + i + "].cutOff", 12f);
-//                uniformsMap.setUniform("SpotLight1[" + i + "].outerCutOff", 17.5f);
-//            }
+            else if(i == 1) {
+                uniformsMap.setUniform("SpotLight1[" + i + "].position", SpotLightPositions[i]);
+                uniformsMap.setUniform("SpotLight1[" + i + "].direction", new Vector3f(-3f, 3f, -1.4f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].ambient", new Vector3f(0.0f, 0.0f, 0.0f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].diffuse", new Vector3f(1.0f, 1.0f, 1.0f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].specular", new Vector3f(1.0f, 1.0f, 1.0f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].constant", 1.0f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].linear", 0.022f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].quadratic", 0.0019f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].cutOff", 0.1f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].outerCutOff", 0f);
+            }
+            else if(i == 2) {
+                uniformsMap.setUniform("SpotLight1[" + i + "].position", SpotLightPositions[i]);
+                uniformsMap.setUniform("SpotLight1[" + i + "].direction", new Vector3f(-0.0f, 0f, -0.3f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].ambient", new Vector3f(0.0f, 0.0f, 0.0f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].diffuse", new Vector3f(1.0f, 1.0f, 1.0f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].specular", new Vector3f(1.0f, 1.0f, 1.0f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].constant", 1.0f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].linear", 0.07f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].quadratic", 0.017f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].cutOff", 0.1f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].outerCutOff", 0f);
+            }
         }
 
         uniformsMap.setUniform("spotLight.position", camera.getPosition());
