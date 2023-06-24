@@ -20,6 +20,7 @@ public class Main {
     private Window window = new Window(1080, 1080, "Hello World");
     ArrayList<Object> objectObj = new ArrayList<>();
     ArrayList<Object> objectGround = new ArrayList<>();
+    ArrayList<Object> objectAsteroid = new ArrayList<>();
     ArrayList<Object> objectToko = new ArrayList<>();
 
     ArrayList<Object> objectdekorasiToko = new ArrayList<>();
@@ -98,6 +99,87 @@ public class Main {
 
         objectGround.get(0).scaleObject(0.05f,0.05f,0.03f);
         objectGround.get(0).translateObject(-0.1f, -0.82f, 0.05f);
+
+        objectAsteroid.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.330f,0.333f,0.333f,1.0f),
+                "resources/model/asteroid/asteroidkecil.obj"
+        ));
+
+        objectAsteroid.get(0).scaleObject(0.1f,0.1f,0.1f);
+        objectAsteroid.get(0).translateObject(-0.3f, -0.82f, -8f);
+
+
+        objectAsteroid.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.330f,0.333f,0.333f,1.0f),
+                "resources/model/asteroid/asteroidkecil2.obj"
+        ));
+
+        objectAsteroid.get(1).scaleObject(0.1f,0.1f,0.1f);
+        objectAsteroid.get(1).translateObject(-5f, -0.7f, -6f);
+
+        objectAsteroid.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.330f,0.333f,0.333f,1.0f),
+                "resources/model/asteroid/asteroidkecil2.obj"
+        ));
+
+        objectAsteroid.get(2).scaleObject(0.05f,0.05f,0.05f);
+        objectAsteroid.get(2).translateObject(11f, 3f, 2f);
+
+        objectAsteroid.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.330f,0.333f,0.333f,1.0f),
+                "resources/model/asteroid/asteroidkecil2.obj"
+        ));
+
+        objectAsteroid.get(3).scaleObject(0.05f,0.05f,0.05f);
+        objectAsteroid.get(3).translateObject(-9f, -4f, 5f);
+
+        objectAsteroid.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.330f,0.333f,0.333f,1.0f),
+                "resources/model/asteroid/asteroidbesar.obj"
+        ));
+
+        objectAsteroid.get(4).scaleObject(0.05f,0.05f,0.05f);
+        objectAsteroid.get(4).translateObject(-7f, -3f, -10f);
+
+        objectAsteroid.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.330f,0.333f,0.333f,1.0f),
+                "resources/model/asteroid/asteroidbesar.obj"
+        ));
+
+        objectAsteroid.get(5).scaleObject(0.05f,0.05f,0.05f);
+        objectAsteroid.get(5).rotateObject(0.5f, 0.0f, 0.0f,1.0f);
+        objectAsteroid.get(5).translateObject(3f, -1f, 8f);
+
 
         objectToko.add(new Model(
                 Arrays.asList(
@@ -1460,6 +1542,10 @@ public class Main {
 
             for (Object object: objectGround) {
                 object.draw_ground(camera, projection);
+            }
+
+            for (Object object: objectAsteroid) {
+                object.draw(camera, projection);
             }
 
             for (Object object: objectToko) {
