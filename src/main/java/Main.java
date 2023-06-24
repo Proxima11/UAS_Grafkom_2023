@@ -92,7 +92,7 @@ public class Main {
                 "resources/model/asteroid/untitled.obj"
         ));
 
-        objectGround.get(0).scaleObject(0.05f,0.05f,0.02f);
+        objectGround.get(0).scaleObject(0.05f,0.05f,0.03f);
         objectGround.get(0).translateObject(-0.1f, -0.82f, 0.05f);
 
         hitboxEnvironment.add(new Square(
@@ -103,7 +103,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 1f, 1.4f
         ));
-        hitboxEnvironment.get(0).translateObject(-0.35f, 0.5f, 0f);
+        hitboxEnvironment.get(0).translateObject(-0.35f, 0.5f, -0.6f);
 
         hitboxEnvironment.add(new Square(
                 Arrays.asList(
@@ -113,7 +113,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 1f, 1.4f
         ));
-        hitboxEnvironment.get(1).translateObject(0.55f, 0.5f, 0f);
+        hitboxEnvironment.get(1).translateObject(0.55f, 0.5f, -0.6f);
 
         hitboxEnvironment.add(new Square(
                 Arrays.asList(
@@ -123,7 +123,7 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 1.1f, 1f, 1f
         ));
-        hitboxEnvironment.get(2).translateObject(0.1f, 0.5f, 0f);
+        hitboxEnvironment.get(2).translateObject(0.1f, 0.5f, -0.6f);
 
         objectToko.add(new Model(
                 Arrays.asList(
@@ -370,7 +370,7 @@ public class Main {
         ));
 
         objectdekorasiToko.get(0).scaleObject(5f,5f,5f);
-        objectdekorasiToko.get(0).translateObject(-0.25f, -0.02f, 0.5f);
+        objectdekorasiToko.get(0).translateObject(-0.25f, -0.02f, -0.1f);
 
         objectdekorasiToko.add(new Model(
                 Arrays.asList(
@@ -383,7 +383,7 @@ public class Main {
         ));
 
         objectdekorasiToko.get(1).scaleObject(5f,5f,5f);
-        objectdekorasiToko.get(1).translateObject(-0.25f, -0.02f, 0.5f);
+        objectdekorasiToko.get(1).translateObject(-0.25f, -0.02f, -0.1f);
 
         objectdekorasiToko.add(new Model(
                 Arrays.asList(
@@ -652,7 +652,12 @@ public class Main {
         objectSpaceship.get(4).scaleObject(0.4f,0.4f,0.4f);
         objectSpaceship.get(4).translateObject(-2.7f, -0.0f, 0.5f);
 
-
+        for(int i = 0; i < objectToko.size(); i++){
+            objectToko.get(i).translateObject(0.0f, 0.0f, -0.6f);
+        }
+        for(int i = 0; i < objectSampah.size(); i++){
+            objectSampah.get(i).translateObject(0.0f, 0.0f, -0.6f);
+        }
     }
 
     public void input() {
@@ -788,36 +793,28 @@ public class Main {
             if (modeToggle == 2) {
                 camera.addRotation(-0.01f, 0f);
             } else {
-                camera.moveForward(distance);
                 camera.addRotation(-0.01f, 0f);
-                camera.moveBackwards(distance);
             }
         }
         if (window.isKeyPressed(GLFW_KEY_DOWN)) {
             if (modeToggle == 2) {
                 camera.addRotation(0.01f, 0f);
             } else {
-                camera.moveForward(distance);
                 camera.addRotation(0.01f, 0f);
-                camera.moveBackwards(distance);
             }
         }
         if (window.isKeyPressed(GLFW_KEY_LEFT)) {
             if (modeToggle == 2) {
                 camera.addRotation(0f, -0.01f);
             } else {
-                camera.moveForward(distance);
                 camera.addRotation(0f, -0.01f);
-                camera.moveBackwards(distance);
             }
         }
         if (window.isKeyPressed(GLFW_KEY_RIGHT)) {
             if (modeToggle == 2) {
                 camera.addRotation(0f, 0.01f);
             } else {
-                camera.moveForward(distance);
                 camera.addRotation(0f, 0.01f);
-                camera.moveBackwards(distance);
             }
         }
 
@@ -826,9 +823,7 @@ public class Main {
             if (modeToggle == 2) {
                 camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
             } else {
-                camera.moveForward(distance);
                 camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
-                camera.moveBackwards(distance);
             }
         }
 
