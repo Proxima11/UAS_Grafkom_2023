@@ -67,7 +67,7 @@ public class Object extends ShaderProgram{
             uniformsMap.createUniform("pointLight["+i+"].linear");
             uniformsMap.createUniform("pointLight["+i+"].quadratic");
         }
-        for(int i = 0; i < 3; i++){
+        for(int i = 0; i < 4; i++){
             uniformsMap.createUniform("SpotLight1["+i+"].position");
             uniformsMap.createUniform("SpotLight1["+i+"].direction");
             uniformsMap.createUniform("SpotLight1["+i+"].ambient");
@@ -200,7 +200,8 @@ public class Object extends ShaderProgram{
         Vector3f[] SpotLightPositions = {
                 new Vector3f(-2.0f, -0.02f, -1.1f),
                 new Vector3f(-1.5f, -0.02f, -0.8f),
-                new Vector3f(-0.0f, 2f, 0.2f)
+                new Vector3f(-0.0f, 2f, 0.2f),
+                new Vector3f(-2.8f, 0.1f, 0.4f)
         };
 
         for(int i = 0; i < SpotLightPositions.length; i++){
@@ -238,6 +239,18 @@ public class Object extends ShaderProgram{
                 uniformsMap.setUniform("SpotLight1[" + i + "].linear", 0.07f);
                 uniformsMap.setUniform("SpotLight1[" + i + "].quadratic", 0.017f);
                 uniformsMap.setUniform("SpotLight1[" + i + "].cutOff", 0.1f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].outerCutOff", 0f);
+            }
+            else if(i == 3) {
+                uniformsMap.setUniform("SpotLight1[" + i + "].position", SpotLightPositions[i]);
+                uniformsMap.setUniform("SpotLight1[" + i + "].direction", new Vector3f(-2.8f, -10f, 0.4f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].ambient", new Vector3f(0.01f, 0.01f, 0.01f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].diffuse", new Vector3f(1.0f, 1.0f, 1.0f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].specular", new Vector3f(1.0f, 1.0f, 1.0f));
+                uniformsMap.setUniform("SpotLight1[" + i + "].constant", 1.0f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].linear", 0.07f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].quadratic", 0.017f);
+                uniformsMap.setUniform("SpotLight1[" + i + "].cutOff", 0.3f);
                 uniformsMap.setUniform("SpotLight1[" + i + "].outerCutOff", 0f);
             }
         }
