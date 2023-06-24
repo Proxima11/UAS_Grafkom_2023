@@ -917,10 +917,108 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(0f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 0.25f, 0.3f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 0.75f, 0.05f
         ));
-        hitboxEnvironment.get(7).translateObject(-0.75f, 0.15f, -0.05f);
+        hitboxEnvironment.get(7).translateObject(-0.75f, 0.35f, -0.125f);
 
+        // meja 1
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.65f, 0.4f, 0.5f
+        ));
+        hitboxEnvironment.get(8).translateObject(-1.3f, 0.1f, 0.8f);
+
+        // meja 2
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.65f, 0.4f, 0.5f
+        ));
+        hitboxEnvironment.get(9).translateObject(0f, 0.1f, 1.1f);
+
+        // meja 3
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.65f, 0.4f, 0.5f
+        ));
+        hitboxEnvironment.get(10).translateObject(1.2f, 0.1f, 1.1f);
+
+        // light pole left
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.3f, 1.1f, 0.3f
+        ));
+        hitboxEnvironment.get(11).translateObject(1.1f, 0.4f, 0.45f);
+
+        // light pole right
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.3f, 1.1f, 0.3f
+        ));
+        hitboxEnvironment.get(12).translateObject(2.5f, 0.4f, 0.45f);
+
+        // small trash can
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.1f, 0.2f, 0.1f
+        ));
+        hitboxEnvironment.get(13).translateObject(0.7f, 0.125f, 0.105f);
+
+        // box right side
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.3f, 0.2f, 0.275f
+        ));
+        hitboxEnvironment.get(14).translateObject(0.8f, 0.125f, -0.26f);
+
+        // big trash can
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.3f, 0.6f, 0.7f
+        ));
+        hitboxEnvironment.get(15).translateObject(0.8f, 0.125f, -0.855f);
+
+        // fountain
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 1f, 0.6f, 1f
+        ));
+        hitboxEnvironment.get(16).translateObject(-1.65f, 0.125f, -0.95f);
     }
 
     public void input() {
