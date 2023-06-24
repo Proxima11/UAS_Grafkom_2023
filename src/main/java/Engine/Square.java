@@ -262,7 +262,7 @@ public class Square extends Object{
         boolean yNegCol = false;
         boolean zNegCol = false;
 
-        if ((position.x + size.x/2) >= (centerPoint.x - radiusX/2) && (position.x + size.x/2) <= (centerPoint.x + radiusX/2)) {
+        if (((position.x + size.x/2) >= (centerPoint.x - radiusX/2) && (position.x + size.x/2) <= (centerPoint.x + radiusX/2))){
             xPosCol = true;
         }
         if ((position.x - size.x/2) >= (centerPoint.x - radiusX/2) && (position.x - size.x/2) <= (centerPoint.x + radiusX/2)) {
