@@ -26,6 +26,12 @@ public class Main {
     ArrayList<Object> objectSampah = new ArrayList<>();
     ArrayList<Object> objectMejaKursi = new ArrayList<>();
     ArrayList<Object> objectSpaceship = new ArrayList<>();
+
+    ArrayList<Object> hitboxEnvironment = new ArrayList<>();
+    ArrayList<Object> hitboxPerson = new ArrayList<>();
+    ArrayList<Object> hitboxAlien = new ArrayList<>();
+    ArrayList<Object> hitboxSampah = new ArrayList<>();
+
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
     float distance = 1f;
@@ -70,7 +76,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,0f,1f,1.0f),
                 "resources/model/Bottle/Bottle.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectObj.get(0).scaleObject(0.01f,0.01f,0.01f);
@@ -84,11 +89,31 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.330f,0.333f,0.333f,1.0f),
-                "resources/model/asteroid/untitled.obj", new Vector3f(0,0,0)
+                "resources/model/asteroid/untitled.obj"
         ));
 
         objectGround.get(0).scaleObject(0.05f,0.05f,0.02f);
         objectGround.get(0).translateObject(-0.1f, -0.82f, 0.05f);
+
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 1f, 1.4f
+        ));
+        hitboxEnvironment.get(0).translateObject(-0.35f, 0.5f, 0f);
+
+        hitboxEnvironment.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0,0,0), 0.2f, 1f, 1.4f
+        ));
+        hitboxEnvironment.get(1).translateObject(0.55f, 0.5f, 0f);
 
         objectToko.add(new Model(
                 Arrays.asList(
@@ -98,7 +123,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.640f,0.513f,0.410f,1.0f),
                 "resources/model/toko/lt2badan.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(0).scaleObject(0.1f,0.1f,0.1f);
@@ -112,7 +136,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
                 "resources/model/toko/atap1.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(1).scaleObject(0.1f,0.1f,0.1f);
@@ -126,7 +149,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.640f,0.513f,0.410f,1.0f),
                 "resources/model/toko/lt1.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(2).scaleObject(0.1f,0.1f,0.1f);
@@ -140,7 +162,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.960f,0.710f,0.710f,1.0f),
                 "resources/model/toko/bannerlt1.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(3).scaleObject(0.1f,0.1f,0.1f);
@@ -154,7 +175,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.610f,0.533f,0.470f,1.0f),
                 "resources/model/toko/penyanggalt1.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(4).scaleObject(0.1f,0.1f,0.1f);
@@ -168,7 +188,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,1f,1f,1.0f),
                 "resources/model/toko/piring_dan_kertas.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(5).scaleObject(0.1f,0.1f,0.1f);
@@ -182,7 +201,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,1f,0f,1.0f),
                 "resources/model/toko/gelas.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(6).scaleObject(0.1f,0.1f,0.1f);
@@ -196,7 +214,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.137f,0.530f,0.0848f,1.0f),
                 "resources/model/toko/botol.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(7).scaleObject(0.1f,0.1f,0.1f);
@@ -210,7 +227,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,0f,0f,1.0f),
                 "resources/model/toko/lampion.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(8).scaleObject(0.1f,0.1f,0.1f);
@@ -224,7 +240,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
                 "resources/model/toko/kursitinggiobj.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(9).scaleObject(0.1f,0.1f,0.1f);
@@ -238,7 +253,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1f,1f,1f,1.0f),
                 "resources/model/toko/bawahgalon.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(10).scaleObject(0.1f,0.1f,0.1f);
@@ -252,7 +266,6 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(0f,1f,1f,1.0f),
                 "resources/model/toko/galon.obj"
-                , new Vector3f(0,0,0)
         ));
 
         objectToko.get(11).scaleObject(0.1f,0.1f,0.1f);
@@ -265,7 +278,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
-                "resources/model/toko/lt2atap.obj", new Vector3f(0,0,0)
+                "resources/model/toko/lt2atap.obj"
         ));
 
         objectToko.get(12).scaleObject(0.1f,0.1f,0.1f);
@@ -278,7 +291,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.393f,0.393f,0.393f,1.0f),
-                "resources/model/toko/listrik_tong.obj", new Vector3f(0,0,0)
+                "resources/model/toko/listrik_tong.obj"
         ));
 
         objectToko.get(13).scaleObject(0.1f,0.1f,0.1f);
@@ -291,7 +304,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
-                "resources/model/toko/kerangka.obj", new Vector3f(0,0,0)
+                "resources/model/toko/kerangka.obj"
         ));
 
         objectToko.get(14).scaleObject(0.1f,0.1f,0.1f);
@@ -304,7 +317,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0f,0f,0f,1.0f),
-                "resources/model/toko/penyanggabanner.obj", new Vector3f(0,0,0)
+                "resources/model/toko/penyanggabanner.obj"
         ));
 
         objectToko.get(15).scaleObject(0.1f,0.1f,0.1f);
@@ -317,7 +330,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.630f,0.469f,0.258f,1.0f),
-                "resources/model/toko/banner.obj", new Vector3f(0,0,0)
+                "resources/model/toko/banner.obj"
         ));
 
         objectToko.get(16).scaleObject(0.1f,0.1f,0.1f);
@@ -330,7 +343,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.960f,0.710f,0.710f,1.0f),
-                "resources/model/toko/bannerluar_karpet.obj", new Vector3f(0,0,0)
+                "resources/model/toko/bannerluar_karpet.obj"
         ));
 
         objectToko.get(17).scaleObject(0.1f,0.1f,0.1f);
@@ -343,7 +356,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
-                "resources/model/toko/tiang_banner1.obj", new Vector3f(0,0,0)
+                "resources/model/toko/tiang_banner1.obj"
         ));
 
         objectdekorasiToko.get(0).scaleObject(5f,5f,5f);
@@ -356,7 +369,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(1f,0f,0f,1.0f),
-                "resources/model/toko/isi_banner.obj", new Vector3f(0,0,0)
+                "resources/model/toko/isi_banner.obj"
         ));
 
         objectdekorasiToko.get(1).scaleObject(5f,5f,5f);
@@ -369,7 +382,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
-                "resources/model/toko/tiang_lampionkiri.obj", new Vector3f(0,0,0)
+                "resources/model/toko/tiang_lampionkiri.obj"
         ));
 
         objectdekorasiToko.get(2).scaleObject(5f,5f,5f);
@@ -382,7 +395,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
-                "resources/model/toko/tiang_lampionkanan.obj", new Vector3f(0,0,0)
+                "resources/model/toko/tiang_lampionkanan.obj"
         ));
 
         objectdekorasiToko.get(3).scaleObject(5f,5f,5f);
@@ -395,7 +408,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.340f,0.250f,0.177f,1.0f),
-                "resources/model/toko/tiang_lampiontengah.obj", new Vector3f(0,0,0)
+                "resources/model/toko/tiang_lampiontengah.obj"
         ));
 
         objectdekorasiToko.get(4).scaleObject(5f,5f,5f);
@@ -408,7 +421,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(1f,0f,0f,1.0f),
-                "resources/model/toko/lampionkiri.obj", new Vector3f(0,0,0)
+                "resources/model/toko/lampionkiri.obj"
         ));
 
         objectdekorasiToko.get(5).scaleObject(5f,5f,5f);
@@ -421,7 +434,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(1f,0f,0f,1.0f),
-                "resources/model/toko/lampionkiritengah.obj", new Vector3f(0,0,0)
+                "resources/model/toko/lampionkiritengah.obj"
         ));
 
         objectdekorasiToko.get(6).scaleObject(5f,5f,5f);
@@ -434,7 +447,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(1f,0f,0f,1.0f),
-                "resources/model/toko/lampiontengah.obj", new Vector3f(0,0,0)
+                "resources/model/toko/lampiontengah.obj"
         ));
 
         objectdekorasiToko.get(7).scaleObject(5f,5f,5f);
@@ -447,7 +460,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(1f,0f,0f,1.0f),
-                "resources/model/toko/lampionkanantengah.obj", new Vector3f(0,0,0)
+                "resources/model/toko/lampionkanantengah.obj"
         ));
 
         objectdekorasiToko.get(8).scaleObject(5f,5f,5f);
@@ -460,7 +473,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(1f,0f,0f,1.0f),
-                "resources/model/toko/lampionkanan.obj", new Vector3f(0,0,0)
+                "resources/model/toko/lampionkanan.obj"
         ));
 
         objectdekorasiToko.get(9).scaleObject(5f,5f,5f);
@@ -473,7 +486,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0f,0f,0f,1.0f),
-                "resources/model/sampah/sampah1.obj", new Vector3f(0,0,0)
+                "resources/model/sampah/sampah1.obj"
         ));
 
         objectSampah.get(0).scaleObject(0.1f,0.1f,0.1f);
@@ -486,7 +499,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0f,0f,0f,1.0f),
-                "resources/model/sampah/sampah2.obj", new Vector3f(0,0,0)
+                "resources/model/sampah/sampah2.obj"
         ));
 
         objectSampah.get(1).scaleObject(0.1f,0.1f,0.1f);
@@ -499,7 +512,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.196f,0.430f,0.155f,1.0f),
-                "resources/model/sampah/tong_sampah_besar.obj", new Vector3f(0,0,0)
+                "resources/model/sampah/tong_sampah_besar.obj"
         ));
 
         objectSampah.get(2).scaleObject(0.1f,0.1f,0.1f);
@@ -512,7 +525,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.620f,0.541f,0.384f,1.0f),
-                "resources/model/sampah/kerdus.obj", new Vector3f(0,0,0)
+                "resources/model/sampah/kerdus.obj"
         ));
 
         objectSampah.get(3).scaleObject(0.1f,0.1f,0.1f);
@@ -526,7 +539,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.620f,0.541f,0.384f,1.0f),
-                "resources/model/mejakursi/mejakursi.obj", new Vector3f(0,0,0)
+                "resources/model/mejakursi/mejakursi.obj"
         ));
 
         objectMejaKursi.get(0).scaleObject(0.4f,0.4f,0.4f);
@@ -540,7 +553,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.620f,0.541f,0.384f,1.0f),
-                "resources/model/mejakursi/mejakursi.obj", new Vector3f(0,0,0)
+                "resources/model/mejakursi/mejakursi.obj"
         ));
 
         objectMejaKursi.get(1).scaleObject(0.4f,0.4f,0.4f);
@@ -554,7 +567,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.620f,0.541f,0.384f,1.0f),
-                "resources/model/mejakursi/mejakursi.obj", new Vector3f(0,0,0)
+                "resources/model/mejakursi/mejakursi.obj"
         ));
 
         objectMejaKursi.get(2).scaleObject(0.4f,0.4f,0.4f);
@@ -568,7 +581,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0f,0f,1f,1.0f),
-                "resources/model/spaceship/mainbody.obj", new Vector3f(0,0,0)
+                "resources/model/spaceship/mainbody.obj"
         ));
 
 
@@ -582,7 +595,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0f,0f,1f,1.0f),
-                "resources/model/spaceship/sayapkiri.obj", new Vector3f(0,0,0)
+                "resources/model/spaceship/sayapkiri.obj"
         ));
 
 
@@ -596,7 +609,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0f,0f,1f,1.0f),
-                "resources/model/spaceship/sayapkanan.obj", new Vector3f(0,0,0)
+                "resources/model/spaceship/sayapkanan.obj"
         ));
 
 
@@ -610,7 +623,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0f,1f,0f,1.0f),
-                "resources/model/spaceship/kursiPenumpang.obj", new Vector3f(0,0,0)
+                "resources/model/spaceship/kursiPenumpang.obj"
         ));
 
         objectSpaceship.get(3).scaleObject(0.4f,0.4f,0.4f);
@@ -623,7 +636,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(1f,1f,1f,1.0f),
-                "resources/model/spaceship/penutup.obj", new Vector3f(0,0,0)
+                "resources/model/spaceship/penutup.obj"
         ));
 
         objectSpaceship.get(4).scaleObject(0.4f,0.4f,0.4f);
@@ -751,6 +764,13 @@ public class Main {
                 rotation = 0.0f;
             }
             camera.setPosition(verticesK.get((int)rotation).x,verticesK.get((int)rotation).y, verticesK.get((int)rotation).z);
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_Q)){
+            camera.moveForward(0.05f);
+        }
+        if (window.isKeyPressed(GLFW_KEY_E)){
+            camera.moveBackwards(0.05f);
         }
 
 
@@ -1027,6 +1047,10 @@ public class Main {
 
             for (Object object: objectSpaceship) {
                 object.draw_mejakursi(camera, projection);
+            }
+
+            for (Object object: hitboxEnvironment){
+                object.drawLine(camera, projection);
             }
 
 
