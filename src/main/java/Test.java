@@ -66,6 +66,16 @@ public class Test {
         ));
 
 
+//        hitboxPerson.add(new Square(
+//                Arrays.asList(
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+//                ),
+//                new ArrayList<>(),
+//                new Vector4f(0f,1f,1f,1.0f), new Vector3f(0,0,0), 0.25f, 0.4f, 0.25f
+//        ));
+//        hitboxPerson.get(0).translateObject(-2.075f, 0.175f, 0.32f);
+
     }
 
     public ArrayList<Boolean> checkCollision(){
@@ -111,23 +121,23 @@ public class Test {
             camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
         }
 
-        if (window.isKeyPressed(GLFW_KEY_W)){
+        if (window.isKeyPressed(GLFW_KEY_H)){
             if (!collision.get(6)) {
                 object.get(0).translateObject(0f, 0f, -0.005f);
             }
         }
-        else if (window.isKeyPressed(GLFW_KEY_A)){
+        else if (window.isKeyPressed(GLFW_KEY_B)){
             if (!collision.get(2)) {
                 object.get(0).translateObject(-0.005f, 0f, 0f);
             }
         }
 
-        if (window.isKeyPressed(GLFW_KEY_S)){
+        if (window.isKeyPressed(GLFW_KEY_N)){
             if (!collision.get(5)) {
                 object.get(0).translateObject(0f, 0f ,0.005f);
             }
         }
-        else if (window.isKeyPressed(GLFW_KEY_D)){
+        else if (window.isKeyPressed(GLFW_KEY_M)){
             if (!collision.get(1)) {
                 object.get(0).translateObject(0.005f, 0f, 0f);
             }
