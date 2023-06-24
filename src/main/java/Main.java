@@ -138,7 +138,7 @@ public class Main {
         ));
 
         objectAsteroid.get(2).scaleObject(0.05f,0.05f,0.05f);
-        objectAsteroid.get(2).translateObject(11f, 3f, 2f);
+        objectAsteroid.get(2).translateObject(11f, 3f, -2f);
 
         objectAsteroid.add(new Model(
                 Arrays.asList(
@@ -864,7 +864,6 @@ public class Main {
         }
 
         hitbox();
-        testLight();
     }
 
     public void testLight(){
@@ -962,7 +961,7 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-0.11f, 0.15f, -0.025f), 0.125f, 0.25f, 0.125f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-0.11f, 0.0f, -0.025f), 0.125f, 0.25f, 0.125f
         ));
 
         // kursi toko 2
@@ -972,7 +971,7 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.155f, 0.15f, -0.025f), 0.125f, 0.25f, 0.125f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.155f, -0.2f, -0.025f), 0.125f, 0.25f, 0.125f
         ));
 
         // kotak sampah kiri
@@ -982,7 +981,7 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-0.525f, 0.15f, -0.05f), 0.15f, 0.25f, 0.3f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-0.525f, 0.0f, -0.05f), 0.15f, 0.25f, 0.3f
         ));
 
         // flag banner
@@ -992,7 +991,7 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-0.75f, 0.35f, -0.125f), 0.2f, 0.75f, 0.05f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(-0.75f, -0.3f, -0.125f), 0.2f, 0.75f, 0.05f
         ));
 
         // meja 1
@@ -1052,7 +1051,7 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.7f, 0.125f, 0.105f), 0.1f, 0.2f, 0.1f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.7f, -0.1f, 0.105f), 0.1f, 0.2f, 0.1f
         ));
 
         // box right side
@@ -1062,7 +1061,7 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.8f, 0.125f, -0.26f), 0.3f, 0.2f, 0.275f
+                new Vector4f(1f,1f,1f,1.0f), new Vector3f(0.8f, 0.0f, -0.26f), 0.3f, 0.2f, 0.275f
         ));
 
         // big trash can
