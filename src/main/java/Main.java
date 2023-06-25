@@ -674,7 +674,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0f,0f,1f,1.0f),
-                "resources/model/spaceship/sayapkiri.obj"
+                "resources/model/spaceship/sayapkiri1.obj"
         ));
 
 
