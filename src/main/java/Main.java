@@ -30,11 +30,14 @@ public class Main {
     ArrayList<Object> objectFountain = new ArrayList<>();
     ArrayList<Object> objectAstronaut = new ArrayList<>();
 
+    ArrayList<Object> objectSampah_Spawn = new ArrayList<>();
+
     Skybox sk;
 
 
     ArrayList<Object> posisiLight = new ArrayList<>();
     ArrayList<Object> hitboxEnvironment = new ArrayList<>();
+    ArrayList<Object> hitboxSampah_Spawn = new ArrayList<>();
     ArrayList<Object> hitboxPerson = new ArrayList<>();
     ArrayList<Object> hitboxAlien = new ArrayList<>();
     ArrayList<Object> hitboxSampah = new ArrayList<>();
@@ -1139,7 +1142,7 @@ public class Main {
     }
 
 
-    public void input() {
+    public void input()  throws IOException{
         Vector3f temp = objectObj.get(0).getCenterPoint();
         angle = angle % (float) Math.toRadians(360);
 
@@ -1278,6 +1281,21 @@ public class Main {
         }
         if (window.isKeyPressed(GLFW_KEY_T)){
             camera.moveRight(0.05f);
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_C)) {
+                objectdekorasiToko.add(new Model(
+                        Arrays.asList(
+                                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                                new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                        ),
+                        new ArrayList<>(),
+                        new Vector4f(1f, 0f, 0f, 1.0f),
+                        "resources/model/toko/lampionkiri.obj"
+                ));
+
+                objectdekorasiToko.get(5).scaleObject(5f, 5f, 5f);
+                objectdekorasiToko.get(5).translateObject(1.8f, -0.02f, 0.0f);
         }
 
         if (window.getMouseInput().isRightButtonPressed()) {
@@ -1776,7 +1794,11 @@ public class Main {
 
             GL.createCapabilities();
 
-            input();
+            try {
+                input();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
             if (delay){
                 delayCounter++;
