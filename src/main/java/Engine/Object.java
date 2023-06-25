@@ -541,6 +541,15 @@ public class Object extends ShaderProgram{
         return new ArrayList<>();
     }
 
+    public Boolean checkCollision(Vector3f position, Vector3f size, String string){
+
+        boolean xCol = false;
+        boolean yCol = false;
+        boolean zCol = false;
+
+        return xCol;
+    }
+
     public boolean[] checkCollision(Square objek1, Square objek2){
 
         boolean xCol = false;

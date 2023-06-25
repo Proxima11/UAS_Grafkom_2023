@@ -310,6 +310,24 @@ public class Square extends Object{
         return movement;
     }
 
+    public Boolean checkCollision(Vector3f position, Vector3f size,String sampah){
+        boolean collision = false;
+        boolean xtrue = false;
+        boolean ztrue = false;
+        System.out.println("x: " + Math.abs(centerPoint.x - position.x));
+        if(Math.abs(centerPoint.x - position.x) < 0.1f){
+            xtrue = true;
+        }
+        if(Math.abs(centerPoint.z - position.z) < 0.1f){
+            ztrue = true;
+            System.out.println("z: " + Math.abs(centerPoint.z - position.z));
+        }
+        if(xtrue && ztrue){
+            collision = true;
+        }
+        return collision;
+    }
+
     public boolean[] checkCollision(Square model1, Square model2){
         //kiri, kanan, depan, belakang
         boolean[] movement = {false, false, false, false};
@@ -345,31 +363,205 @@ public class Square extends Object{
         checking1[5][1] = titikUjung1.get(4);
 
         //garis atas depan
-        checking2[0][0] = titikUjung1.get(4);
-        checking2[0][1] = titikUjung1.get(7);
+        checking2[0][0] = titikUjung2.get(4);
+        checking2[0][1] = titikUjung2.get(7);
 
         //garis vertikal depan
-        checking2[1][0] = titikUjung1.get(6);
-        checking2[1][1] = titikUjung1.get(7);
+        checking2[1][0] = titikUjung2.get(6);
+        checking2[1][1] = titikUjung2.get(7);
 
         //garis atas kanan
-        checking2[2][0] = titikUjung1.get(3);
-        checking2[2][1] = titikUjung1.get(7);
+        checking2[2][0] = titikUjung2.get(3);
+        checking2[2][1] = titikUjung2.get(7);
 
         //garis atas belakang
-        checking2[3][0] = titikUjung1.get(0);
-        checking2[3][1] = titikUjung1.get(3);
+        checking2[3][0] = titikUjung2.get(0);
+        checking2[3][1] = titikUjung2.get(3);
 
         //garis vertikal belakang
-        checking2[4][0] = titikUjung1.get(1);
-        checking2[4][1] = titikUjung1.get(0);
+        checking2[4][0] = titikUjung2.get(1);
+        checking2[4][1] = titikUjung2.get(0);
 
         //garis atas kiri
-        checking2[5][0] = titikUjung1.get(0);
-        checking2[5][1] = titikUjung1.get(4);
+        checking2[5][0] = titikUjung2.get(0);
+        checking2[5][1] = titikUjung2.get(4);
 
-        //cek depan
-        
+        //cek depan z1
+        if(checking1[0][0].x >= checking2[0][0].x && checking1[0][0].x < checking2[0][1].x || checking1[0][1].x >= checking2[0][0].x && checking1[0][1].x < checking2[0][1].x){
+            if(checking1[0][0].z >= checking2[0][0].z && checking1[0][0].z < checking2[0][1].x || checking1[0][1].z >= checking2[0][0].z && checking1[0][1].z < checking2[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x >= checking1[0][0].x && checking2[0][0].x < checking1[0][1].x || checking2[0][1].x >= checking1[0][0].x && checking2[0][1].x < checking1[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x <= checking1[0][0].x && checking2[0][0].x > checking1[0][1].x || checking2[0][1].x <= checking1[0][0].x && checking2[0][1].x > checking1[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking1[0][0].x <= checking2[0][0].x && checking1[0][0].x > checking2[0][1].x || checking1[0][1].x <= checking2[0][0].x && checking1[0][1].x > checking2[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+
+        //cek depan z2
+        if(checking1[0][0].x >= checking2[0][0].x && checking1[0][0].x < checking2[0][1].x || checking1[0][1].x >= checking2[0][0].x && checking1[0][1].x < checking2[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x >= checking1[0][0].x && checking2[0][0].x < checking1[0][1].x || checking2[0][1].x >= checking1[0][0].x && checking2[0][1].x < checking1[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x <= checking1[0][0].x && checking2[0][0].x > checking1[0][1].x || checking2[0][1].x <= checking1[0][0].x && checking2[0][1].x > checking1[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking1[0][0].x <= checking2[0][0].x && checking1[0][0].x > checking2[0][1].x || checking1[0][1].x <= checking2[0][0].x && checking1[0][1].x > checking2[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+
+        //cek depan z3
+        if(checking1[0][0].x >= checking2[0][0].x && checking1[0][0].x < checking2[0][1].x || checking1[0][1].x >= checking2[0][0].x && checking1[0][1].x < checking2[0][1].x){
+            if(checking2[0][0].z <= checking1[0][0].z && checking2[0][0].z > checking1[0][1].x || checking2[0][1].z <= checking1[0][0].z && checking2[0][1].z > checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x >= checking1[0][0].x && checking2[0][0].x < checking1[0][1].x || checking2[0][1].x >= checking1[0][0].x && checking2[0][1].x < checking1[0][1].x){
+            if(checking2[0][0].z <= checking1[0][0].z && checking2[0][0].z > checking1[0][1].x || checking2[0][1].z <= checking1[0][0].z && checking2[0][1].z > checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x <= checking1[0][0].x && checking2[0][0].x > checking1[0][1].x || checking2[0][1].x <= checking1[0][0].x && checking2[0][1].x > checking1[0][1].x){
+            if(checking2[0][0].z <= checking1[0][0].z && checking2[0][0].z > checking1[0][1].x || checking2[0][1].z <= checking1[0][0].z && checking2[0][1].z > checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking1[0][0].x <= checking2[0][0].x && checking1[0][0].x > checking2[0][1].x || checking1[0][1].x <= checking2[0][0].x && checking1[0][1].x > checking2[0][1].x){
+            if(checking2[0][0].z <= checking1[0][0].z && checking2[0][0].z > checking1[0][1].x || checking2[0][1].z <= checking1[0][0].z && checking2[0][1].z > checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+
+        //cek depan z4
+        if(checking1[0][0].x >= checking2[0][0].x && checking1[0][0].x < checking2[0][1].x || checking1[0][1].x >= checking2[0][0].x && checking1[0][1].x < checking2[0][1].x){
+            if(checking1[0][0].z <= checking2[0][0].z && checking1[0][0].z > checking2[0][1].x || checking1[0][1].z <= checking2[0][0].z && checking1[0][1].z > checking2[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x >= checking1[0][0].x && checking2[0][0].x < checking1[0][1].x || checking2[0][1].x >= checking1[0][0].x && checking2[0][1].x < checking1[0][1].x){
+            if(checking1[0][0].z <= checking2[0][0].z && checking1[0][0].z > checking2[0][1].x || checking1[0][1].z <= checking2[0][0].z && checking1[0][1].z > checking2[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x <= checking1[0][0].x && checking2[0][0].x > checking1[0][1].x || checking2[0][1].x <= checking1[0][0].x && checking2[0][1].x > checking1[0][1].x){
+            if(checking1[0][0].z <= checking2[0][0].z && checking1[0][0].z > checking2[0][1].x || checking1[0][1].z <= checking2[0][0].z && checking1[0][1].z > checking2[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking1[0][0].x <= checking2[0][0].x && checking1[0][0].x > checking2[0][1].x || checking1[0][1].x <= checking2[0][0].x && checking1[0][1].x > checking2[0][1].x){
+            if(checking1[0][0].z <= checking2[0][0].z && checking1[0][0].z > checking2[0][1].x || checking1[0][1].z <= checking2[0][0].z && checking1[0][1].z > checking2[0][1].z){
+                movement[2] = true;
+            }
+        }
+
+        //cek kanan z1
+        if(checking1[1][0].x >= checking2[0][0].x && checking1[1][0].x < checking2[0][1].x || checking1[0][1].x >= checking2[0][0].x && checking1[0][1].x < checking2[0][1].x){
+            if(checking1[0][0].z >= checking2[0][0].z && checking1[0][0].z < checking2[0][1].x || checking1[0][1].z >= checking2[0][0].z && checking1[0][1].z < checking2[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x >= checking1[0][0].x && checking2[0][0].x < checking1[0][1].x || checking2[0][1].x >= checking1[0][0].x && checking2[0][1].x < checking1[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x <= checking1[0][0].x && checking2[0][0].x > checking1[0][1].x || checking2[0][1].x <= checking1[0][0].x && checking2[0][1].x > checking1[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking1[0][0].x <= checking2[0][0].x && checking1[0][0].x > checking2[0][1].x || checking1[0][1].x <= checking2[0][0].x && checking1[0][1].x > checking2[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+
+        //cek depan z2
+        if(checking1[0][0].x >= checking2[0][0].x && checking1[0][0].x < checking2[0][1].x || checking1[0][1].x >= checking2[0][0].x && checking1[0][1].x < checking2[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x >= checking1[0][0].x && checking2[0][0].x < checking1[0][1].x || checking2[0][1].x >= checking1[0][0].x && checking2[0][1].x < checking1[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x <= checking1[0][0].x && checking2[0][0].x > checking1[0][1].x || checking2[0][1].x <= checking1[0][0].x && checking2[0][1].x > checking1[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking1[0][0].x <= checking2[0][0].x && checking1[0][0].x > checking2[0][1].x || checking1[0][1].x <= checking2[0][0].x && checking1[0][1].x > checking2[0][1].x){
+            if(checking2[0][0].z >= checking1[0][0].z && checking2[0][0].z < checking1[0][1].x || checking2[0][1].z >= checking1[0][0].z && checking2[0][1].z < checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+
+        //cek depan z3
+        if(checking1[0][0].x >= checking2[0][0].x && checking1[0][0].x < checking2[0][1].x || checking1[0][1].x >= checking2[0][0].x && checking1[0][1].x < checking2[0][1].x){
+            if(checking2[0][0].z <= checking1[0][0].z && checking2[0][0].z > checking1[0][1].x || checking2[0][1].z <= checking1[0][0].z && checking2[0][1].z > checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x >= checking1[0][0].x && checking2[0][0].x < checking1[0][1].x || checking2[0][1].x >= checking1[0][0].x && checking2[0][1].x < checking1[0][1].x){
+            if(checking2[0][0].z <= checking1[0][0].z && checking2[0][0].z > checking1[0][1].x || checking2[0][1].z <= checking1[0][0].z && checking2[0][1].z > checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x <= checking1[0][0].x && checking2[0][0].x > checking1[0][1].x || checking2[0][1].x <= checking1[0][0].x && checking2[0][1].x > checking1[0][1].x){
+            if(checking2[0][0].z <= checking1[0][0].z && checking2[0][0].z > checking1[0][1].x || checking2[0][1].z <= checking1[0][0].z && checking2[0][1].z > checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking1[0][0].x <= checking2[0][0].x && checking1[0][0].x > checking2[0][1].x || checking1[0][1].x <= checking2[0][0].x && checking1[0][1].x > checking2[0][1].x){
+            if(checking2[0][0].z <= checking1[0][0].z && checking2[0][0].z > checking1[0][1].x || checking2[0][1].z <= checking1[0][0].z && checking2[0][1].z > checking1[0][1].z){
+                movement[2] = true;
+            }
+        }
+
+        //cek depan z4
+        if(checking1[0][0].x >= checking2[0][0].x && checking1[0][0].x < checking2[0][1].x || checking1[0][1].x >= checking2[0][0].x && checking1[0][1].x < checking2[0][1].x){
+            if(checking1[0][0].z <= checking2[0][0].z && checking1[0][0].z > checking2[0][1].x || checking1[0][1].z <= checking2[0][0].z && checking1[0][1].z > checking2[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x >= checking1[0][0].x && checking2[0][0].x < checking1[0][1].x || checking2[0][1].x >= checking1[0][0].x && checking2[0][1].x < checking1[0][1].x){
+            if(checking1[0][0].z <= checking2[0][0].z && checking1[0][0].z > checking2[0][1].x || checking1[0][1].z <= checking2[0][0].z && checking1[0][1].z > checking2[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking2[0][0].x <= checking1[0][0].x && checking2[0][0].x > checking1[0][1].x || checking2[0][1].x <= checking1[0][0].x && checking2[0][1].x > checking1[0][1].x){
+            if(checking1[0][0].z <= checking2[0][0].z && checking1[0][0].z > checking2[0][1].x || checking1[0][1].z <= checking2[0][0].z && checking1[0][1].z > checking2[0][1].z){
+                movement[2] = true;
+            }
+        }
+        if(checking1[0][0].x <= checking2[0][0].x && checking1[0][0].x > checking2[0][1].x || checking1[0][1].x <= checking2[0][0].x && checking1[0][1].x > checking2[0][1].x){
+            if(checking1[0][0].z <= checking2[0][0].z && checking1[0][0].z > checking2[0][1].x || checking1[0][1].z <= checking2[0][0].z && checking1[0][1].z > checking2[0][1].z){
+                movement[2] = true;
+            }
+        }
+
 
         return movement;
     }

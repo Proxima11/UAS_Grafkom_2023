@@ -32,6 +32,8 @@ public class Main {
 
     ArrayList<Object> objectSampahSpawn = new ArrayList<>();
 
+    ArrayList<Object> objectSampahCollect = new ArrayList<>();
+
     Skybox sk;
 
 
@@ -39,6 +41,7 @@ public class Main {
     ArrayList<Object> hitboxEnvironment = new ArrayList<>();
     ArrayList<Object> hitboxSampah_Spawn = new ArrayList<>();
     ArrayList<Object> hitboxPerson = new ArrayList<>();
+    ArrayList<Object> hitboxSampahCollect = new ArrayList<>();
     ArrayList<Object> hitboxAlien = new ArrayList<>();
     ArrayList<Object> hitboxSampah = new ArrayList<>();
 
@@ -1151,6 +1154,13 @@ public class Main {
             }
             ia++;
         }
+//        for(Object object: hitboxEnvironment){
+//            boolean[] result_det = object.checkCollision((Square) hitboxPerson.get(0), (Square) object);
+//            for(boolean result : result_det){
+//                collision.add(result);
+//            }
+//        }
+
         return collision;
     }
 
@@ -1159,17 +1169,16 @@ public class Main {
         int ia=0;
         for (Object object: hitboxEnvironment) {
 
-            ArrayList <Boolean> col = object.checkCollision(sampah_box.getCenterPoint(), this.hitboxEnvironment.get(0).getSize());
+            ArrayList <Boolean> col = sampah_box.checkCollision(object.getCenterPoint(), object.getSize());
             if (col.get(0)) {
                 collision = true;
             }
             ia++;
         }
-        if(collision == false){
+        if(!collision){
             int ib=0;
             for (Object object: hitboxPerson) {
-
-                ArrayList <Boolean> col = object.checkCollision(sampah_box.getCenterPoint(), this.hitboxPerson.get(0).getSize());
+                ArrayList <Boolean> col = sampah_box.checkCollision(object.getCenterPoint(), object.getSize());
                 if (col.get(0)) {
                     collision = true;
                 }
@@ -1373,6 +1382,24 @@ public class Main {
                     hitboxSampah_Spawn.add(hitboxSampah_temp);
                     found = true;
                 }
+            }
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_V)) {
+            boolean get_obj = false;
+            for(int i = 0; i < hitboxSampah_Spawn.size(); i++){
+                boolean cek = hitboxPerson.get(0).checkCollision(hitboxSampah_Spawn.get(i).getCenterPoint(), hitboxSampah_Spawn.get(i).getSize(), "sampah");
+                if(cek){
+                    hitboxSampahCollect.add(hitboxSampah_Spawn.get(i));
+                    objectSampahCollect.add(objectSampahSpawn.get(i));
+                    hitboxSampah_Spawn.remove(i);
+                    objectSampahSpawn.remove(i);
+                    get_obj = true;
+                    break;
+                }
+            }
+            if(get_obj) {
+                hitboxSampahCollect.get(hitboxSampahCollect.size()-1).translateObject(hitboxPerson.get(0).getCenterPoint().x - hitboxSampahCollect.get(hitboxSampahCollect.size()-1).getCenterPoint().x, hitboxPerson.get(0).getCenterPoint().y - hitboxSampahCollect.get(hitboxSampahCollect.size()-1).getCenterPoint().y, hitboxPerson.get(0).getCenterPoint().z - hitboxSampahCollect.get(hitboxSampahCollect.size()-1).getCenterPoint().z);
             }
         }
 
@@ -2195,6 +2222,10 @@ public class Main {
             }
 
             for (Object object: hitboxSampah_Spawn){
+                object.drawLine(camera, projection, modeToko);
+            }
+
+            for (Object object: hitboxSampahCollect){
                 object.drawLine(camera, projection, modeToko);
             }
 
