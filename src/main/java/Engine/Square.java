@@ -23,6 +23,8 @@ public class Square extends Object{
 
     // shading color
     List<Vector3f> normal;
+
+    List<Vector3f> Titik;
     int nbo;
 
     public Square(List<ShaderProgram.ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, Vector3f centerPoint,
@@ -32,6 +34,7 @@ public class Square extends Object{
         this.radiusY = rY;
         this.radiusZ = rZ;
         this.centerPoint = centerPoint;
+        Titik = new ArrayList<>();
         createBox();
         setupVAOVBO();
     }
@@ -45,48 +48,56 @@ public class Square extends Object{
         temp.y = centerPoint.get(1) + radiusY / 2;
         temp.z = centerPoint.get(2) - radiusZ / 2;
         tempVertices.add(temp);
+        Titik.add(temp);
         temp = new Vector3f();
         //Titik 2 kiri bawah belakang
         temp.x = centerPoint.get(0) - radiusX / 2;
         temp.y = centerPoint.get(1) - radiusY / 2;
         temp.z = centerPoint.get(2) - radiusZ / 2;
         tempVertices.add(temp);
+        Titik.add(temp);
         temp = new Vector3f();
         //Titik 3 kanan bawah belakang
         temp.x = centerPoint.get(0) + radiusX / 2;
         temp.y = centerPoint.get(1) - radiusY / 2;
         temp.z = centerPoint.get(2) - radiusZ / 2;
         tempVertices.add(temp);
+        Titik.add(temp);
         temp = new Vector3f();
         //Titik 4 kiri atas belakang
         temp.x = centerPoint.get(0) + radiusX / 2;
         temp.y = centerPoint.get(1) + radiusY / 2;
         temp.z = centerPoint.get(2) - radiusZ / 2;
         tempVertices.add(temp);
+        Titik.add(temp);
         temp = new Vector3f();
         //Titik 5 kiri atas depan
         temp.x = centerPoint.get(0) - radiusX / 2;
         temp.y = centerPoint.get(1) + radiusY / 2;
         temp.z = centerPoint.get(2) + radiusZ / 2;
         tempVertices.add(temp);
+        Titik.add(temp);
         temp = new Vector3f();
         //Titik 6 kiri bawah depan
         temp.x = centerPoint.get(0) - radiusX / 2;
         temp.y = centerPoint.get(1) - radiusY / 2;
         temp.z = centerPoint.get(2) + radiusZ / 2;
         tempVertices.add(temp);
+        Titik.add(temp);
         temp = new Vector3f();
         //Titik 7 kanan bawah depan
         temp.x = centerPoint.get(0) + radiusX / 2;
         temp.y = centerPoint.get(1) - radiusY / 2;
         temp.z = centerPoint.get(2) + radiusZ / 2;
         tempVertices.add(temp);
+        Titik.add(temp);
         temp = new Vector3f();
         //Titik 8 kiri atas depan
         temp.x = centerPoint.get(0) + radiusX / 2;
         temp.y = centerPoint.get(1) + radiusY / 2;
         temp.z = centerPoint.get(2) + radiusZ / 2;
         tempVertices.add(temp);
+        Titik.add(temp);
         temp = new Vector3f();
 
         // kotak belakang
@@ -295,6 +306,43 @@ public class Square extends Object{
         movement.add(yNegCol);
         movement.add(zPosCol);
         movement.add(zNegCol);
+
+        return movement;
+    }
+
+    public boolean[] checkCollision(Square model1, Square model2){
+        //kiri, kanan, depan, belakang
+        boolean[] movement = {false, false, false, false};
+
+        List<Vector3f> titikUjung1 = model1.Titik;
+        List<Vector3f> titikUjung2 = model2.Titik;
+
+        Vector3f[][] checking1 = new Vector3f[6][2];
+        Vector3f[][] checking2 = new Vector3f[6][2];
+
+        //garis atas depan
+        checking1[0][0] = titikUjung1.get(4);
+        checking1[0][1] = titikUjung1.get(7);
+
+        //garis vertikal depan
+        checking1[1][0] = titikUjung1.get(6);
+        checking1[1][0] = titikUjung1.get(7);
+
+        //garis atas kanan
+        checking1[2][0] = titikUjung1.get(3);
+        checking1[2][0] = titikUjung1.get(7);
+
+        //garis atas belakang
+        checking1[2][0] = titikUjung1.get(0);
+        checking1[2][0] = titikUjung1.get(3);
+
+        //garis vertikal belakang
+        checking1[3][0] = titikUjung1.get(3);
+        checking1[3][0] = titikUjung1.get(7);
+
+
+        //cek depan
+
 
         return movement;
     }
