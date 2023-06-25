@@ -30,7 +30,7 @@ public class Main {
     ArrayList<Object> objectFountain = new ArrayList<>();
     ArrayList<Object> objectAstronaut = new ArrayList<>();
 
-    ArrayList<Object> objectSampah_Spawn = new ArrayList<>();
+    ArrayList<Object> objectSampahSpawn = new ArrayList<>();
 
     Skybox sk;
 
@@ -868,6 +868,7 @@ public class Main {
 //        objectAstronaut.get(1).scaleObject(0.05f,0.05f,0.05f);
 //        objectAstronaut.get(1).translateObject(-2.2f, 0.0f, -0.0f);
 
+
         for(int i = 0; i < objectToko.size(); i++){
             objectToko.get(i).translateObject(0.0f, 0.0f, -0.6f);
         }
@@ -1284,18 +1285,21 @@ public class Main {
         }
 
         if (window.isKeyPressed(GLFW_KEY_C)) {
-                objectdekorasiToko.add(new Model(
-                        Arrays.asList(
-                                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-                                new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-                        ),
-                        new ArrayList<>(),
-                        new Vector4f(1f, 0f, 0f, 1.0f),
-                        "resources/model/toko/lampionkiri.obj"
-                ));
+            Random rand = new Random();
+            int random_spawn = rand.nextInt(5);
 
-                objectdekorasiToko.get(5).scaleObject(5f, 5f, 5f);
-                objectdekorasiToko.get(5).translateObject(1.8f, -0.02f, 0.0f);
+            objectSampahSpawn.add(new Model(
+                    Arrays.asList(
+                            new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                            new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                    ),
+                    new ArrayList<>(),
+                    new Vector4f(1f, 1f, 1f, 1.0f),
+                    "resources/model/sampah_spawn/kertas3.obj"
+            ));
+
+            objectSampahSpawn.get(0).scaleObject(0.3f, 0.3f, 0.3f);
+            objectSampahSpawn.get(0).translateObject(-2f, -0.09f, 1.2f);
         }
 
         if (window.getMouseInput().isRightButtonPressed()) {
@@ -1985,6 +1989,10 @@ public class Main {
 
             for (Object object: objectSampah) {
                 object.draw(camera, projection);
+            }
+
+            for (Object object: objectSampahSpawn) {
+                object.draw_mejakursi(camera, projection);
             }
 
             for (Object object: objectSpaceship) {
