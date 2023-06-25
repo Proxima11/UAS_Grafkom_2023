@@ -155,13 +155,13 @@ public class Test {
             input();
 
             //code
-
+            int[] modeToko = {0,0,0,0,0};
             for(Object object: objects){
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for(Object object: object){
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             // Restore state
