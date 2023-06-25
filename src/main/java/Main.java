@@ -1183,95 +1183,15 @@ public class Main {
 
 
         if (window.isKeyPressed(GLFW_KEY_W)) {
-            objectObj.get(0).translateObject(0.0f, move, 0.0f);
-            Vector3f posObj = objectObj.get(0).model.transformPosition(new Vector3f());
-
-            ArrayList<Vector3f> verticesK = new ArrayList<>(List.of());
-
-            for(float i = 0;i<360;i+=1) {
-                float x = (float) (posObj.x + 2f * Math.sin(Math.toRadians(i)));
-                float z = (float) (posObj.z + 2f * Math.cos(Math.toRadians(i)));
-                float y =(float) posObj.y+0.3f;
-                verticesK.add(new Vector3f(x, y, z));
-            }
-            camera.setPosition(verticesK.get(0).x, verticesK.get(0).y, verticesK.get(0).z);
-
-            if (rotation >= 360.0) {
-                rotation = 0.0f;
-            }
-            camera.setPosition(verticesK.get((int)rotation).x,verticesK.get((int)rotation).y, verticesK.get((int)rotation).z);
-        }
-        if (window.isKeyPressed(GLFW_KEY_S)) {
-            objectObj.get(0).translateObject(0.0f, -move, 0.0f);
-            Vector3f posObj = objectObj.get(0).model.transformPosition(new Vector3f());
-
-            ArrayList<Vector3f> verticesK = new ArrayList<>(List.of());
-
-            for(float i = 0;i<360;i+=1) {
-                float x = (float) (posObj.x + 2f * Math.sin(Math.toRadians(i)));
-                float z = (float) (posObj.z + 2f * Math.cos(Math.toRadians(i)));
-                float y =(float) posObj.y+0.3f;
-                verticesK.add(new Vector3f(x, y, z));
-            }
-            camera.setPosition(verticesK.get(0).x, verticesK.get(0).y, verticesK.get(0).z);
-
-            if (rotation >= 360.0) {
-                rotation = 0.0f;
-            }
-            camera.setPosition(verticesK.get((int)rotation).x,verticesK.get((int)rotation).y, verticesK.get((int)rotation).z);
-        }
-        if (window.isKeyPressed(GLFW_KEY_A)) {
-            objectObj.get(0).translateObject(-move, 0.0f, 0.0f);
-            Vector3f posObj = objectObj.get(0).model.transformPosition(new Vector3f());
-
-            ArrayList<Vector3f> verticesK = new ArrayList<>(List.of());
-
-            for(float i = 0;i<360;i+=1) {
-                float x = (float) (posObj.x + 2f * Math.sin(Math.toRadians(i)));
-                float z = (float) (posObj.z + 2f * Math.cos(Math.toRadians(i)));
-                float y =(float) posObj.y+0.3f;
-                verticesK.add(new Vector3f(x, y, z));
-            }
-            camera.setPosition(verticesK.get(0).x, verticesK.get(0).y, verticesK.get(0).z);
-
-            if (rotation >= 360.0) {
-                rotation = 0.0f;
-            }
-            camera.setPosition(verticesK.get((int)rotation).x,verticesK.get((int)rotation).y, verticesK.get((int)rotation).z);
-        }
-        if (window.isKeyPressed(GLFW_KEY_D)) {
-            objectObj.get(0).translateObject(move, 0.0f, 0.0f);
-            Vector3f posObj = objectObj.get(0).model.transformPosition(new Vector3f());
-            float posX = camera.getPosition().x;
-            float posY = camera.getPosition().y;
-            float posZ = camera.getPosition().z;
-
-            ArrayList<Vector3f> verticesK = new ArrayList<>(List.of());
-
-            for(float i = 0;i<360;i+=1) {
-                float x = (float) (posObj.x + 2f * Math.sin(Math.toRadians(i)));
-                float z = (float) (posObj.z + 2f * Math.cos(Math.toRadians(i)));
-                float y =(float) posObj.y+0.3f;
-                verticesK.add(new Vector3f(x, y, z));
-            }
-            camera.setPosition(verticesK.get(0).x, verticesK.get(0).y, verticesK.get(0).z);
-
-            if (rotation >= 360.0) {
-                rotation = 0.0f;
-            }
-            camera.setPosition(verticesK.get((int)rotation).x,verticesK.get((int)rotation).y, verticesK.get((int)rotation).z);
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_Q)){
-            camera.moveForward(0.05f);
-        }
-        if (window.isKeyPressed(GLFW_KEY_E)){
             camera.moveBackwards(0.05f);
         }
-        if (window.isKeyPressed(GLFW_KEY_R)){
+        if (window.isKeyPressed(GLFW_KEY_S)) {
+            camera.moveForward(0.05f);
+        }
+        if (window.isKeyPressed(GLFW_KEY_A)) {
             camera.moveLeft(0.05f);
         }
-        if (window.isKeyPressed(GLFW_KEY_T)){
+        if (window.isKeyPressed(GLFW_KEY_D)) {
             camera.moveRight(0.05f);
         }
 
