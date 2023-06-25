@@ -53,6 +53,7 @@ public class Main {
 
     float camRotation = 0;
     float camY = 1;
+    float diameter = 4f;
 
     float move = 0.01f;
     List<Float> temp;
@@ -74,6 +75,7 @@ public class Main {
     boolean TPS = false;
     boolean cinematic = false;
 
+    boolean press = false;
 
 
     public void run() throws IOException {
@@ -1445,11 +1447,35 @@ public class Main {
 
         // FPS trigger
         if (window.isKeyPressed(GLFW_KEY_F1) && !FPS){
+
+            Vector3f pos = camera.getPosition();
+
+            if (cinematic) {
+                for (int i=0;i<camRotation; i+=5){
+                    camera.setPosition(-pos.x, -pos.y, -pos.z);
+                    camera.addRotation(0f, (float) Math.toRadians(5));
+                    camera.setPosition(pos.x, pos.y, pos.z);
+                }
+
+                camera.setPosition(-pos.x, -pos.y, -pos.z);
+                camera.addRotation(0f, (float) Math.toRadians(180));
+                camera.setPosition(pos.x, pos.y, pos.z);
+
+                for (int i=0;i<rotation; i+=5){
+                    camera.setPosition(-pos.x, -pos.y, -pos.z);
+                    camera.addRotation(0f, (float) Math.toRadians(-5));
+                    camera.setPosition(pos.x, pos.y, pos.z);
+                }
+            }
+            else if (!FPS && !TPS){
+                camera.setPosition(-pos.x, -pos.y, -pos.z);
+                camera.setRotation(0f, (float) Math.toRadians(90));
+                camera.setPosition(pos.x, pos.y, pos.z);
+            }
+
             FPS = true;
             TPS = false;
             cinematic = false;
-
-            camera.setRotation(0f, (float) Math.toRadians(rotation));
 
             updateFPS();
         }
@@ -1464,11 +1490,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation-=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1484,11 +1510,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation+=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1514,11 +1540,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation-=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1533,11 +1559,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation+=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1563,11 +1589,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation+=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1581,11 +1607,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation-=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1611,11 +1637,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation-=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1630,11 +1656,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation+=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1651,13 +1677,51 @@ public class Main {
             }
         }
 
+        if (window.isKeyPressed(GLFW_KEY_J) && !press){
+            press = true;
+            Vector3f pos = camera.getPosition();
+
+            for (int i=0; i<rotation; i++){
+                camera.setPosition(-pos.x, -pos.y, -pos.z);
+                camera.addRotation(0.0f, (float) Math.toRadians(-5));
+                camera.setPosition(pos.x, pos.y, pos.z);
+            }
+        }
+
         // TPS trigger
         if (window.isKeyPressed(GLFW_KEY_F2) && !TPS){
+
+            Vector3f pos = camera.getPosition();
+
+            if (cinematic) {
+                for (int i=0;i<camRotation; i+=5){
+                    camera.setPosition(-pos.x, -pos.y, -pos.z);
+                    camera.addRotation(0f, (float) Math.toRadians(5));
+                    camera.setPosition(pos.x, pos.y, pos.z);
+                }
+
+                camera.setPosition(-pos.x, -pos.y, -pos.z);
+                camera.addRotation(0f, (float) Math.toRadians(180));
+                camera.setPosition(pos.x, pos.y, pos.z);
+
+                for (int i=0;i<rotation; i+=5){
+                    camera.setPosition(-pos.x, -pos.y, -pos.z);
+                    camera.addRotation(0f, (float) Math.toRadians(-5));
+                    camera.setPosition(pos.x, pos.y, pos.z);
+                }
+                camera.setPosition(-pos.x, -pos.y, -pos.z);
+                camera.setRotation((float) Math.toRadians(30), 0f);
+                camera.setPosition(pos.x, pos.y, pos.z);
+            }
+            else if (!FPS && !TPS){
+                camera.setPosition(-pos.x, -pos.y, -pos.z);
+                camera.setRotation((float) Math.toRadians(30), (float) Math.toRadians(90));
+                camera.setPosition(pos.x, pos.y, pos.z);
+            }
+
             FPS = false;
             TPS = true;
             cinematic = false;
-
-            camera.setRotation((float) Math.toRadians(30), (float) Math.toRadians(rotation));
 
             updateTPS();
         }
@@ -1672,11 +1736,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation-=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1692,11 +1756,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation+=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1722,11 +1786,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation-=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1741,11 +1805,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation+=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1771,11 +1835,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation+=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1789,11 +1853,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation-=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1819,11 +1883,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation-=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1838,11 +1902,11 @@ public class Main {
                     object.translateObject(pos.x, pos.y, pos.z);
                 }
                 rotation+=5;
-                if (rotation > 359) {
+                if (rotation > 355) {
                     rotation = 0;
                 }
                 if (rotation < 0) {
-                    rotation = 359;
+                    rotation = 355;
                 }
                 Vector3f pos = camera.getPosition();
                 camera.setPosition(-pos.x, -pos.y, -pos.z);
@@ -1861,40 +1925,34 @@ public class Main {
 
         // Cinematic trigger
         else if (window.isKeyPressed(GLFW_KEY_F3)) {
-//            Vector3f posObj = objectGround.get(0).model.transformPosition(new Vector3f());
-//            float posX = camera.getPosition().x;
-//            float posY = camera.getPosition().y;
-//            float posZ = camera.getPosition().z;
-//
-//            ArrayList<Vector3f> verticesK = new ArrayList<>(List.of());
-//
-//            for(float i = 0;i<360;i+=0.1) {
-//                float x = (float) (posObj.x + 1f * Math.sin(Math.toRadians(i)));
-//                float z = (float) (posObj.z + 1f * Math.cos(Math.toRadians(i)));
-//                float y =(float) posObj.y+0.3f;
-//                verticesK.add(new Vector3f(x, y, z));
-//            }
-//            camera.setPosition(verticesK.get(0).x, verticesK.get(0).y, verticesK.get(0).z);
-//
-//            camera.setPosition(-posX, -posY, -posZ);
-//            camera.addRotation(0.0f, (float) Math.toRadians(-0.1f));
-//            camera.setPosition(posX, posY, posZ);
-//
-//            camRotation += 0.1f;
-//
-//            if (camRotation >= 360.0) {
-//                camRotation = 0.0f;
-//            }
-//            camera.setPosition(verticesK.get((int)camRotation).x,verticesK.get((int)camRotation).y, verticesK.get((int)camRotation).z);
+            Vector3f pos = camera.getPosition();
+
+            if (TPS || FPS) {
+                for (int i=0;i<rotation; i+=5){
+                    camera.setPosition(-pos.x, -pos.y, -pos.z);
+                    camera.addRotation(0f, (float) Math.toRadians(5));
+                    camera.setPosition(pos.x, pos.y, pos.z);
+                }
+
+                camera.setPosition(-pos.x, -pos.y, -pos.z);
+                camera.addRotation(0f, (float) Math.toRadians(180));
+                camera.setPosition(pos.x, pos.y, pos.z);
+
+                for (int i=0;i<camRotation; i+=5){
+                    camera.setPosition(-pos.x, -pos.y, -pos.z);
+                    camera.addRotation(0f, (float) Math.toRadians(-5));
+                    camera.setPosition(pos.x, pos.y, pos.z);
+                }
+            }
 
             FPS = false;
             TPS = false;
             cinematic = true;
 
-            camera.setRotation(0f, (float) Math.toRadians(camRotation));
-
             updateCinematic();
         }
+
+        System.out.println("rot " + rotation + " camrot " + camRotation);
 
         if (window.isKeyPressed(GLFW_KEY_LEFT) && cinematic){
             Vector3f pos = camera.getPosition();
@@ -1903,11 +1961,11 @@ public class Main {
             camera.setPosition(pos.x, pos.y, pos.z);
             camRotation-=5;
 
-            if (camRotation > 359) {
+            if (camRotation > 355) {
                 camRotation = 0;
             }
             if (camRotation < 0) {
-                camRotation = 359;
+                camRotation = 355;
             }
             updateCinematic();
         }
@@ -1919,11 +1977,11 @@ public class Main {
             camera.setPosition(pos.x, pos.y, pos.z);
             camRotation+=5;
 
-            if (camRotation > 359) {
+            if (camRotation > 355) {
                 camRotation = 0;
             }
             if (camRotation < 0) {
-                camRotation = 359;
+                camRotation = 355;
             }
             updateCinematic();
         }
@@ -1937,7 +1995,7 @@ public class Main {
         for(double i=0;i<360;i+=360/360){
             float x = (float)(pos.x + 0.2f*Math.sin(Math.toRadians(i)));
             float z = (float)(pos.z + 0.2f*Math.cos(Math.toRadians(i)));
-            track.add(new Vector3f(x, pos.y + 0.2f, z));
+            track.add(new Vector3f(x, pos.y + 0.35f, z));
         }
 
         camera.setPosition(track.get((int)rotation).x, track.get((int)rotation).y, track.get((int)rotation).z);
@@ -1951,7 +2009,7 @@ public class Main {
         for(double i=0;i<360;i+=360/360){
             float x = (float)(pos.x + 0.5f*Math.sin(Math.toRadians(i)));
             float z = (float)(pos.z + 0.5f*Math.cos(Math.toRadians(i)));
-            track.add(new Vector3f(x, pos.y + 0.75f, z));
+            track.add(new Vector3f(x, pos.y + 0.55f, z));
         }
 
         System.out.println(((rotation + 180)%360));
