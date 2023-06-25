@@ -326,23 +326,50 @@ public class Square extends Object{
 
         //garis vertikal depan
         checking1[1][0] = titikUjung1.get(6);
-        checking1[1][0] = titikUjung1.get(7);
+        checking1[1][1] = titikUjung1.get(7);
 
         //garis atas kanan
         checking1[2][0] = titikUjung1.get(3);
-        checking1[2][0] = titikUjung1.get(7);
+        checking1[2][1] = titikUjung1.get(7);
 
         //garis atas belakang
-        checking1[2][0] = titikUjung1.get(0);
-        checking1[2][0] = titikUjung1.get(3);
+        checking1[3][0] = titikUjung1.get(0);
+        checking1[3][1] = titikUjung1.get(3);
 
         //garis vertikal belakang
-        checking1[3][0] = titikUjung1.get(3);
-        checking1[3][0] = titikUjung1.get(7);
+        checking1[4][0] = titikUjung1.get(1);
+        checking1[4][1] = titikUjung1.get(0);
 
+        //garis atas kiri
+        checking1[5][0] = titikUjung1.get(0);
+        checking1[5][1] = titikUjung1.get(4);
+
+        //garis atas depan
+        checking2[0][0] = titikUjung1.get(4);
+        checking2[0][1] = titikUjung1.get(7);
+
+        //garis vertikal depan
+        checking2[1][0] = titikUjung1.get(6);
+        checking2[1][1] = titikUjung1.get(7);
+
+        //garis atas kanan
+        checking2[2][0] = titikUjung1.get(3);
+        checking2[2][1] = titikUjung1.get(7);
+
+        //garis atas belakang
+        checking2[3][0] = titikUjung1.get(0);
+        checking2[3][1] = titikUjung1.get(3);
+
+        //garis vertikal belakang
+        checking2[4][0] = titikUjung1.get(1);
+        checking2[4][1] = titikUjung1.get(0);
+
+        //garis atas kiri
+        checking2[5][0] = titikUjung1.get(0);
+        checking2[5][1] = titikUjung1.get(4);
 
         //cek depan
-
+        
 
         return movement;
     }

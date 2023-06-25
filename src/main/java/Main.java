@@ -77,6 +77,8 @@ public class Main {
 
     boolean press = false;
 
+    int[] modeToko;
+
 
     public void run() throws IOException {
 
@@ -93,6 +95,7 @@ public class Main {
         GL.createCapabilities();
         camera.setPosition(0f, 0f, 2.5f + distance);
 
+        modeToko = new int[]{0,0,0,0,0,0,0};
         //botol sementara
         objectObj.add(new Model(
                 Arrays.asList(
@@ -1985,6 +1988,65 @@ public class Main {
             }
             updateCinematic();
         }
+
+        if (window.isKeyPressed(GLFW_KEY_F4) && !delay){
+            if(modeToko[0] == 0){
+                modeToko[0] = 1;
+            } else{
+                modeToko[0] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F5)&& !delay){
+            if(modeToko[1] == 0){
+                modeToko[1] = 1;
+            } else{
+                modeToko[1] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F6)&& !delay){
+            if(modeToko[2] == 0){
+                modeToko[2] = 1;
+            } else{
+                modeToko[2] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F7)&& !delay){
+            if(modeToko[3] == 0){
+                modeToko[3] = 1;
+            } else{
+                modeToko[3] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F8)&& !delay){
+            if(modeToko[4] == 0){
+                modeToko[4] = 1;
+            } else{
+                modeToko[4] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F9)&& !delay){
+            if(modeToko[5] == 0){
+                modeToko[5] = 1;
+            } else{
+                modeToko[5] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F10)&& !delay){
+            if(modeToko[6] == 0){
+                modeToko[6] = 1;
+            } else{
+                modeToko[6] = 0;
+            }
+            delay = true;
+        }
+
+
     }
 
     public void updateFPS(){
@@ -2033,11 +2095,7 @@ public class Main {
     public void loop() {
         while (window.isOpen()) {
             window.update();
-            if(malam){
-                glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            } else {
-                glClearColor(0.0f, 0.64453125f, 1.0f, 1.0f);
-            }
+            glClearColor(0.0f, 0.64453125f, 1.0f, 1.0f);
 
             GL.createCapabilities();
 
@@ -2074,196 +2132,70 @@ public class Main {
                 delay3 = false;
             }
 
-            if (start){
-                if (carPos < 900) {
-                    objectObj.get(1).translateObject(0f, 0f, -0.007f);
-                    carPos++;
-                }
 
-                if (900 <= carPos && carPos < 990) {
-                    Vector3f temp = objectObj.get(1).getCenterPoint();
-                    objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                    objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                    objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                }
-
-                if (900 <= carPos && carPos < 1250) {
-                    objectObj.get(1).translateObject(0.007f, 0f, 0f);
-                    carPos++;
-                }
-
-                if (1250 <= carPos && carPos < 1340) {
-                    Vector3f temp = objectObj.get(1).getCenterPoint();
-                    objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                    objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                    objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                }
-
-                if (1250 <= carPos && carPos < 2330) {
-                    objectObj.get(1).translateObject(0f, 0f, 0.007f);
-                    carPos++;
-                }
-
-                if (2330 <= carPos && carPos < 2420) {
-                    Vector3f temp = objectObj.get(1).getCenterPoint();
-                    objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                    objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                    objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                }
-
-                if (2330 <= carPos && carPos < 2680) {
-                    objectObj.get(1).translateObject(-0.007f, 0f, 0f);
-                    carPos++;
-                }
-
-                if (2680 <= carPos && carPos < 2770) {
-                    Vector3f temp = objectObj.get(1).getCenterPoint();
-                    objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                    objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                    objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                }
-
-                if (2680 <= carPos && carPos < 2860) {
-                    objectObj.get(1).translateObject(0f, 0f, -0.007f);
-                    carPos++;
-                }
-
-                if (carPos == 2860) {
-                    carPos = 0;
-                }
-            }
-
-            if (modeToggle > 0) {
-                if (modeToggle == 1) {
-                    Vector3f temp = objectObj.get(0).getCenterPoint();
-                    camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
-                    camera.moveBackwards(distance);
-                }
-
-                if (carPos2 < 660) {
-                    objectObj.get(0).translateObject(0f, 0f, -0.01f);
-                    carPos2++;
-                }
-
-                if (660 <= carPos2 && carPos2 < 750) {
-                    Vector3f temp = objectObj.get(0).getCenterPoint();
-                    objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                    objectObj.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                    objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                    angle = angle - (float) Math.toRadians(1f);
-                }
-
-                if (660 <= carPos2 && carPos2 < 1000) {
-                    objectObj.get(0).translateObject(0.01f, 0f, 0f);
-                    carPos2++;
-                }
-
-                if (1000 <= carPos2 && carPos2 < 1090) {
-                    Vector3f temp = objectObj.get(0).getCenterPoint();
-                    objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                    objectObj.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                    objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                    angle = angle - (float) Math.toRadians(1f);
-                }
-
-                if (1000 <= carPos2 && carPos2 < 1820) {
-                    objectObj.get(0).translateObject(0f, 0f, 0.01f);
-                    carPos2++;
-                }
-
-                if (1820 <= carPos2 && carPos2 < 1910) {
-                    Vector3f temp = objectObj.get(0).getCenterPoint();
-                    objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                    objectObj.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                    objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                    angle = angle - (float) Math.toRadians(1f);
-                }
-
-                if (1820 <= carPos2 && carPos2 < 2160) {
-                    objectObj.get(0).translateObject(-0.01f, 0f, 0f);
-                    carPos2++;
-                }
-
-                if (2160 <= carPos2 && carPos2 < 2250) {
-                    Vector3f temp = objectObj.get(0).getCenterPoint();
-                    objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                    objectObj.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                    objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                    angle = angle - (float) Math.toRadians(1f);
-                }
-
-                if (2160 <= carPos2 && carPos2 < 2320) {
-                    objectObj.get(0).translateObject(0f, 0f, -0.01f);
-                    carPos2++;
-                }
-
-                if (carPos2 == 2320) {
-                    carPos2 = 0;
-                }
-            }
 
             // code here
-            sk.draw(camera, projection);
+            sk.draw(camera, projection, modeToko);
 
             for (Object object: objectObj) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: objectGround) {
-                object.draw_ground(camera, projection);
+                object.draw_ground(camera, projection, modeToko);
             }
 
             for (Object object: objectAsteroid) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: objectToko) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: objectdekorasiToko) {
-                object.draw_mejakursi(camera, projection);
+                object.draw_mejakursi(camera, projection, modeToko);
             }
 
 
             for (Object object: objectMejaKursi) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: objectSampah) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: objectSampahSpawn) {
-                object.draw_mejakursi(camera, projection);
+                object.draw_mejakursi(camera, projection, modeToko);
             }
 
             for (Object object: objectSpaceship) {
-                object.draw_mejakursi(camera, projection);
+                object.draw_mejakursi(camera, projection, modeToko);
             }
 
             for (Object object: objectAstronaut) {
-                object.draw_mejakursi(camera, projection);
+                object.draw_mejakursi(camera, projection, modeToko);
             }
 
             for (Object object: objectFountain) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: posisiLight){
-                object.drawLine(camera, projection);
+                object.drawLine(camera, projection, modeToko);
             }
 
             for (Object object: hitboxEnvironment){
-                object.drawLine(camera, projection);
+                object.drawLine(camera, projection, modeToko);
             }
 
             for (Object object: hitboxPerson){
-                object.drawLine(camera, projection);
+                object.drawLine(camera, projection, modeToko);
             }
 
             for (Object object: hitboxSampah_Spawn){
-                object.drawLine(camera, projection);
+                object.drawLine(camera, projection, modeToko);
             }
 
 
