@@ -51,6 +51,7 @@ public class Main {
     float move = 0.01f;
     List<Float> temp;
     int carPos = 0;
+    int sampah = 0;
     int modeToggle = 0;
     int carPos2 = 0;
     boolean delay = false;
@@ -1142,6 +1143,31 @@ public class Main {
         return collision;
     }
 
+    public Boolean checkCollisionSampah(Object sampah_box){
+        boolean collision = false;
+        int ia=0;
+        for (Object object: hitboxEnvironment) {
+
+            ArrayList <Boolean> col = object.checkCollision(sampah_box.getCenterPoint(), this.hitboxEnvironment.get(0).getSize());
+            if (col.get(0)) {
+                collision = true;
+            }
+            ia++;
+        }
+        if(collision == false){
+            int ib=0;
+            for (Object object: hitboxPerson) {
+
+                ArrayList <Boolean> col = object.checkCollision(sampah_box.getCenterPoint(), this.hitboxPerson.get(0).getSize());
+                if (col.get(0)) {
+                    collision = true;
+                }
+                ib++;
+            }
+        }
+        return collision;
+    }
+
 
     public void input()  throws IOException{
         Vector3f temp = objectObj.get(0).getCenterPoint();
@@ -1286,20 +1312,57 @@ public class Main {
 
         if (window.isKeyPressed(GLFW_KEY_C)) {
             Random rand = new Random();
-            int random_spawn = rand.nextInt(5);
+            int random_spawn = rand.nextInt(6);
+            String[] list_sampah = {"botol1", "botol2", "kertas1", "kertas2", "kertas3", "kertas4"};
 
-            objectSampahSpawn.add(new Model(
-                    Arrays.asList(
-                            new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-                            new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-                    ),
-                    new ArrayList<>(),
-                    new Vector4f(1f, 1f, 1f, 1.0f),
-                    "resources/model/sampah_spawn/kertas3.obj"
-            ));
+            sampah += 1;
+            boolean found = false;
+            while(!found) {
+                float random_loc_x = (float) rand.nextInt(350) / 100 + -1.9f;
+                float random_loc_z = (float) rand.nextInt(330) / 100 + -1.7f;
+                float random_loc_y;
+                if (random_loc_x <= -0.2f && random_loc_z > -0.2f) {
+                    random_loc_y = -0.02f;
+                } else if (random_loc_x <= -0.2f && random_loc_z <= -0.2f) {
+                    random_loc_y = 0.05f;
+                } else if (random_loc_x > -0.2f && random_loc_x <= 1.7f && random_loc_z >= -0.2f) {
+                    random_loc_y = 0.04f;
+                } else if (random_loc_x > 1.7f && random_loc_z >= -0.2f) {
+                    random_loc_y = 0.08f;
+                } else {
+                    random_loc_y = 0.09f;
+                }
 
-            objectSampahSpawn.get(0).scaleObject(0.3f, 0.3f, 0.3f);
-            objectSampahSpawn.get(0).translateObject(-2f, -0.09f, 1.2f);
+                Model Sampah_temp = new Model(
+                        Arrays.asList(
+                                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                                new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                        ),
+                        new ArrayList<>(),
+                        new Vector4f(1f, 1f, 1f, 1.0f),
+                        "resources/model/sampah_spawn/" + list_sampah[random_spawn] + ".obj");
+
+                Sampah_temp.scaleObject(0.3f, 0.3f, 0.3f);
+                Sampah_temp.translateObject(random_loc_x, random_loc_y, random_loc_z);
+
+                Object hitboxSampah_temp = new Square(
+                        Arrays.asList(
+                                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                                new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                        ),
+                        new ArrayList<>(),
+                        new Vector4f(0.970f, 0.0388f, 0.784f, 1.0f), new Vector3f(0, 0, 0), 0.1f, 0.1f, 0.1f
+                );
+                hitboxSampah_temp.translateObject(random_loc_x, random_loc_y, random_loc_z);
+
+                boolean notspawn = checkCollisionSampah(hitboxSampah_temp);
+
+                if (!notspawn) {
+                    objectSampahSpawn.add(Sampah_temp);
+                    hitboxSampah_Spawn.add(hitboxSampah_temp);
+                    found = true;
+                }
+            }
         }
 
         if (window.getMouseInput().isRightButtonPressed()) {
@@ -2246,6 +2309,10 @@ public class Main {
             }
 
             for (Object object: hitboxPerson){
+                object.drawLine(camera, projection);
+            }
+
+            for (Object object: hitboxSampah_Spawn){
                 object.drawLine(camera, projection);
             }
 
