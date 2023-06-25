@@ -42,14 +42,10 @@ public class Main {
     ArrayList<Object> hitboxSampah_Spawn = new ArrayList<>();
     ArrayList<Object> hitboxPerson = new ArrayList<>();
     ArrayList<Object> hitboxSampahCollect = new ArrayList<>();
-    ArrayList<Object> hitboxAlien = new ArrayList<>();
-    ArrayList<Object> hitboxSampah = new ArrayList<>();
 
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
     float distance = 1f;
-    float angle = 0f;
-
 
     float rotation = 90;
 
@@ -59,26 +55,19 @@ public class Main {
     float diameter = 4f;
 
     float move = 0.01f;
-    List<Float> temp;
-    int carPos = 0;
+
     int sampah = 0;
-    int modeToggle = 0;
-    int carPos2 = 0;
+
     boolean delay = false;
     int delayCounter = 0;
-    boolean start = false;
-    boolean malam = true;
     boolean delay2 = false;
     int delayCounter2 = 0;
     boolean delay3 = false;
     int delayCounter3 = 0;
-    int total = 0;
 
     boolean FPS = false;
     boolean TPS = false;
     boolean cinematic = false;
-
-    boolean press = false;
 
     int[] modeToko;
 
@@ -1190,52 +1179,8 @@ public class Main {
 
 
     public void input()  throws IOException{
-        Vector3f temp = objectObj.get(0).getCenterPoint();
-        angle = angle % (float) Math.toRadians(360);
 
-        if (window.isKeyPressed(GLFW_KEY_L) && !delay2){
-            malam = !malam;
-            for (Object object: objectObj){
-                object.setScene(malam);
-                for(Object objectChild: object.getChildObject()){
-                    objectChild.setScene(malam);
-                }
-            }
 
-            for (Object object: objectGround){
-                object.setScene(malam);
-                for(Object objectChild: object.getChildObject()){
-                    objectChild.setScene(malam);
-                }
-            }
-
-            for (Object object: objectMejaKursi){
-                object.setScene(malam);
-                for(Object objectChild: object.getChildObject()){
-                    objectChild.setScene(malam);
-                }
-            }
-
-            for (Object object: objectAstronaut){
-                object.setScene(malam);
-                for(Object objectChild: object.getChildObject()){
-                    objectChild.setScene(malam);
-                }
-            }
-
-            delay2 = true;
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_F) && !delay){
-            modeToggle++;
-            modeToggle = modeToggle % 3;
-            System.out.println("Model Toggle: " + modeToggle);
-            delay = true;
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_G)){
-            start = true;
-        }
 
         if (window.isKeyPressed(GLFW_KEY_W)) {
             objectObj.get(0).translateObject(0.0f, move, 0.0f);
@@ -1405,11 +1350,7 @@ public class Main {
 
         if (window.getMouseInput().isRightButtonPressed()) {
             Vector2f displVec = window.getMouseInput().getDisplVec();
-            if (modeToggle == 2) {
                 camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
-            } else {
-                camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
-            }
         }
 
         if (window.getMouseInput().getScroll().y != 0) {
@@ -1417,27 +1358,6 @@ public class Main {
             window.getMouseInput().setScroll(new Vector2f());
         }
 
-        if (window.isKeyPressed(GLFW_KEY_SPACE)) {
-            if (modeToggle == 2) {
-                camera.moveUp(move);
-            }
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_LEFT_SHIFT)) {
-            if (modeToggle == 2) {
-                camera.moveDown(move);
-            }
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_1) && !delay3) { // look back
-
-            camera.setPosition(-temp.get(0), -temp.get(1), -temp.get(2));
-            camera.addRotation(0, (float) Math.toRadians(180f));
-            camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
-            camera.moveBackwards(distance);
-
-            delay3 = true;
-        }
 
         ArrayList<Boolean> collision = checkCollision();
 
@@ -2338,7 +2258,6 @@ public class Main {
             }
 
 
-
             // code here
             sk.draw(camera, projection, modeToko);
 
@@ -2391,21 +2310,17 @@ public class Main {
                 object.drawLine(camera, projection, modeToko);
             }
 
-            for (Object object: hitboxEnvironment){
-                object.drawLine(camera, projection, modeToko);
-            }
+//            for (Object object: hitboxEnvironment){
+//                object.drawLine(camera, projection, modeToko);
+//            }
+//
+//            for (Object object: hitboxPerson){
+//                object.drawLine(camera, projection, modeToko);
+//            }
 
-            for (Object object: hitboxPerson){
-                object.drawLine(camera, projection, modeToko);
-            }
-
-            for (Object object: hitboxSampah_Spawn){
-                object.drawLine(camera, projection, modeToko);
-            }
-
-            for (Object object: hitboxSampahCollect){
-                object.drawLine(camera, projection, modeToko);
-            }
+//            for (Object object: hitboxSampah_Spawn){
+//                object.drawLine(camera, projection, modeToko);
+//            }
 
 
 

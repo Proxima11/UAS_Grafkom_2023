@@ -550,15 +550,6 @@ public class Object extends ShaderProgram{
         return xCol;
     }
 
-    public boolean[] checkCollision(Square objek1, Square objek2){
-
-        boolean xCol = false;
-        boolean yCol = false;
-        boolean zCol = false;
-        boolean[] temp = new boolean[5];
-        return temp;
-    }
-
     public Vector3f getSize(){
         return new Vector3f();
     }
