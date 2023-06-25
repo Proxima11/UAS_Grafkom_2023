@@ -139,7 +139,7 @@ public class Skybox extends Object{
                 GL_STATIC_DRAW);
     }
 
-    public void drawSetup(Camera camera, Projection projection, String test){
+    public void drawSetup(Camera camera, Projection projection, String test, int[] modeToko){
         bind();
         Matrix4f viewMat = new Matrix4f(camera.getViewMatrix());
         viewMat.m30(0);
@@ -164,8 +164,8 @@ public class Skybox extends Object{
                 0, 0);
     }
 
-    public void draw(Camera camera,Projection projection){
-        drawSetup(camera,projection, "test");
+    public void draw(Camera camera,Projection projection, int[] modeToko){
+        drawSetup(camera,projection, "test", modeToko);
         // Draw the vertices
 
         bindTextures();
