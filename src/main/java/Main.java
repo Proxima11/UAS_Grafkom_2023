@@ -63,6 +63,8 @@ public class Main {
     boolean delay = false;
     int delayCounter = 0;
     boolean start = false;
+
+    int[] modeToko = new int[7];
     boolean malam = true;
     boolean delay2 = false;
     int delayCounter2 = 0;
@@ -90,7 +92,7 @@ public class Main {
         window.init();
         GL.createCapabilities();
         camera.setPosition(0f, 0f, 2.5f + distance);
-
+        modeToko = new int[]{0, 0, 0, 0, 0, 0, 0};
         //botol sementara
         objectObj.add(new Model(
                 Arrays.asList(
@@ -1373,11 +1375,11 @@ public class Main {
 
         if (window.getMouseInput().isRightButtonPressed()) {
             Vector2f displVec = window.getMouseInput().getDisplVec();
-            if (modeToggle == 2) {
+//            if (modeToggle == 2) {
+//                camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
+//            } else {
                 camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
-            } else {
-                camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
-            }
+//            }
         }
 
         if (window.getMouseInput().getScroll().y != 0) {
@@ -1858,6 +1860,7 @@ public class Main {
                 }
             }
         }
+<<<<<<< Updated upstream
 
         // Cinematic trigger
         else if (window.isKeyPressed(GLFW_KEY_F3)) {
@@ -1926,6 +1929,70 @@ public class Main {
                 camRotation = 359;
             }
             updateCinematic();
+=======
+        if (window.isKeyPressed(GLFW_KEY_F4)&& !delay){
+            if(modeToko[0] == 0){
+                modeToko[0] = 1;
+            }
+            else{
+                modeToko[0] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F5)&& !delay){
+            if(modeToko[1] == 0){
+                modeToko[1] = 1;
+            }
+            else{
+                modeToko[1] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F6)&& !delay){
+            if(modeToko[2] == 0){
+                modeToko[2] = 1;
+            }
+            else{
+                modeToko[2] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F7)&& !delay){
+            if(modeToko[3] == 0){
+                modeToko[3] = 1;
+            }
+            else{
+                modeToko[3] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F8)&& !delay){
+            if(modeToko[4] == 0){
+                modeToko[4] = 1;
+            }
+            else{
+                modeToko[4] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F9)&& !delay){
+            if(modeToko[5] == 0){
+                modeToko[5] = 1;
+            }
+            else{
+                modeToko[5] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_F10)&& !delay){
+            if(modeToko[6] == 0){
+                modeToko[6] = 1;
+            }
+            else{
+                modeToko[6] = 0;
+            }
+            delay = true;
+>>>>>>> Stashed changes
         }
     }
 
@@ -1975,11 +2042,7 @@ public class Main {
     public void loop() {
         while (window.isOpen()) {
             window.update();
-            if(malam){
-                glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            } else {
-                glClearColor(0.0f, 0.64453125f, 1.0f, 1.0f);
-            }
+            glClearColor(0.0f, 0.64453125f, 1.0f, 1.0f);
 
             GL.createCapabilities();
 
@@ -2145,67 +2208,67 @@ public class Main {
             }
 
             // code here
-            sk.draw(camera, projection);
+            sk.draw(camera, projection, modeToko);
 
             for (Object object: objectObj) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: objectGround) {
-                object.draw_ground(camera, projection);
+                object.draw_ground(camera, projection, modeToko);
             }
 
             for (Object object: objectAsteroid) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: objectToko) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: objectdekorasiToko) {
-                object.draw_mejakursi(camera, projection);
+                object.draw_mejakursi(camera, projection, modeToko);
             }
 
 
             for (Object object: objectMejaKursi) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: objectSampah) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: objectSampahSpawn) {
-                object.draw_mejakursi(camera, projection);
+                object.draw_mejakursi(camera, projection, modeToko);
             }
 
             for (Object object: objectSpaceship) {
-                object.draw_mejakursi(camera, projection);
+                object.draw_mejakursi(camera, projection, modeToko);
             }
 
             for (Object object: objectAstronaut) {
-                object.draw_mejakursi(camera, projection);
+                object.draw_mejakursi(camera, projection, modeToko);
             }
 
             for (Object object: objectFountain) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, modeToko);
             }
 
             for (Object object: posisiLight){
-                object.drawLine(camera, projection);
+                object.drawLine(camera, projection, modeToko);
             }
 
             for (Object object: hitboxEnvironment){
-                object.drawLine(camera, projection);
+                object.drawLine(camera, projection, modeToko);
             }
 
             for (Object object: hitboxPerson){
-                object.drawLine(camera, projection);
+                object.drawLine(camera, projection, modeToko);
             }
 
             for (Object object: hitboxSampah_Spawn){
-                object.drawLine(camera, projection);
+                object.drawLine(camera, projection, modeToko);
             }
 
 
